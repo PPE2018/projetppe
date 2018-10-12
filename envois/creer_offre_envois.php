@@ -10,9 +10,28 @@
 
 
         //// TODO: Recuperer les données du formulaire via post
-        if(isset($_POST['libelle'])){
-            $lib = $_POST['libelle']
+
+        if(isset($_POST['date_limite'])){
+            $dateLimite = $_POST['date_limite'];
         }
+
+        if(isset($_POST['description'])){
+            $description = $_POST['description'];
+        }
+
+        if(isset($_POST['id_docs_offre'])){
+            $idDocsOffre = $_POST['id_docs_offre'];
+        }
+
+        if(isset($_POST['id_personne'])){
+            $idPersonne = $_POST['id_personne'];
+        }
+
+        if(isset($_POST['libelle'])){
+            $lib = $_POST['libelle'];
+        }
+
+
 
         //
         //TODO
