@@ -1,7 +1,10 @@
-body{
-  background:  	#778899;
-  margin:0;
+body
+{
+    background-image:url(image1.jpg);
+    background-attachment: fixed;
+    margin:0;
 }
+/*menu standart*/
 ul {
     list-style-type: none;
     margin: 0;
@@ -25,21 +28,12 @@ li a {
     text-decoration: none;
 }
 
+/*pour langue et la première ligne permet de surligner en noir*/
 li a:hover {
     background-color: #111;
 }
 
-.active {
-    background-color: #333;
-}
-h1
-{
-    text-align: center;
-    margin-top: 100px;
-    color: #000000;
-    text-decoration: underline;
-}
-
+/*formulaire*/
 #conteneur01
 {
     border: 3px solid;
@@ -57,7 +51,13 @@ h1
 {
   padding: 5px 0;
 }
-
+h1
+{
+    text-align: center;
+    margin-top: 100px;
+    color: #FFFFFF;
+    text-decoration: underline;
+}
 label
 {
   text-align:left;
