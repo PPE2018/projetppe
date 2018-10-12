@@ -58,6 +58,13 @@
               <input type="text" name="nom_lieu" required="required" value="" />
           </div>
 
+          <!-- Saisie du salaire-->
+
+          <div>
+            <h3>Salaire annuel :</h3>
+              <input type="int" name="salaire" required="required" value="" max="10" />
+          </div>
+
             <!-- Saisie de la date limite de dépots-->
 
           <div>
@@ -80,7 +87,7 @@
 
       <div>
         <h3>Vidéos :</h3>
-        
+
         <input type="url" name="url" required="required" value="" />
       </div>
 

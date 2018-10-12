@@ -6,6 +6,7 @@
     </head>
     <body>
 
+    <form action="creation_candidature.php" method="post">
     <h1> Création candidature : </h1>
 
       <div id="conteneur01">
@@ -45,10 +46,13 @@
               <input type="submit" name="soumettre" value="Ajouter une vidéo"/>
             </div>
 
+            <div>
+              <input type="submit" name="soumettre" value="Ajouter/Valider"/>
+            </div>
+
       </div>
-
-
     </div>
+  </form>
 
 
     </body>
