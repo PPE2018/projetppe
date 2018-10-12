@@ -80,13 +80,13 @@
 
       <div>
         <h3>Vidéos :</h3>
-
+        
         <input type="url" name="url" required="required" value="" />
       </div>
 
-          <div>
-            <input type="submit" name="soumettre" value="Ajouter/Valider"/>
-          </div>
+      <div>
+        <input type="submit" name="soumettre" value="Ajouter/Valider"/>
+      </div>
 
 
 
