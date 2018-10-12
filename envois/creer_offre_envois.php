@@ -19,18 +19,24 @@
             $description = $_POST['description'];
         }
 
+        //Id qui relie à la table docs (avec bool)
         if(isset($_POST['id_docs_offre'])){
             $idDocsOffre = $_POST['id_docs_offre'];
         }
 
+        //id du RH
         if(isset($_POST['id_personne'])){
             $idPersonne = $_POST['id_personne'];
+        }
+
+        //Titre
+        if(isset($_POST['libelle'])){
+            $lib = $_POST['libelle'];
         }
 
         if(isset($_POST['libelle'])){
             $lib = $_POST['libelle'];
         }
-
 
 
         //
