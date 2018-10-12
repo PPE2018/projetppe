@@ -38,11 +38,9 @@
             $lib = $_POST['libelle'];
         }
 
-
-        //
         //TODO
         //id_personne dependra de la session de l'utilisateur
-        $requete = "INSERT INTO offre_emplois(id_offre, date_limite, description, id_candidature, id_docs_offre, id_personne, libelle, video) VALUES ('.$lib.', 0)";
+        $requete = "INSERT INTO offre_emplois(id_offre, date_limite, description, id_candidature, id_docs_offre, id_personne, libelle, video) VALUES ('.$dateLimite.', '.$description.', '.'.$idDocsOffre.', '.'.$description.')";
         $resultat = mysqli_query($connexion, $requete);
 
         $erreur = false;
