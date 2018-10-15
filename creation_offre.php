@@ -58,7 +58,10 @@
 
           <div>
             <h3> Description :</h3>
-              <input type="text" name="description" required="required">
+              <input type="text" name="description" required="required" maxlength="50" style="width:200px; height:100px;"/>
+                <!-- on a deux fois soit on fait un size qui modifie la longeur de la case soit on modifie la long et larg mais il y a
+              un pb de saisie -->
+
           </div>
 
           <!-- Saisie du type post-->
