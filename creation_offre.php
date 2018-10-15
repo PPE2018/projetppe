@@ -2,19 +2,45 @@
     <head>
         <title>Création_Offre :</title>
         <meta charset="UTF-8">
-        <link href="creation_offre.css" rel="stylesheet" type="text/css" media="screen">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-      <ul>
-        <li><a class="active" href="#home">Acceuil</a></li>
-        <li><a href="#news">Consultation des offres</a></li>
-        <li><a href="#contact">Création des offres</a></li>
-        <li><a href="#about">Réception des candidatures</a></li>
-        <li style="float:right"><a class="active" href="#about">Mon compte</a></li>
-        <li style="float:right" ><a class="active" href="#">Langue</a></li>
-      </ul>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <form action="creation_offre.php" method="post">
+        <div class="collapse navbar-collapse" id="navbarsExample05">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Consultation des offres</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Création des offres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Réception des candidatures</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Langue</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown05">
+                <a class="dropdown-item" href="#">Français</a>
+                <a class="dropdown-item" href="#">English</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Mon Compte</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <form action="envois/creer_offre_envois.php" method="post">
         <h1> Création de l'offre : </h1>
 
       <!-- Conteneur du formulaire -->
@@ -25,18 +51,31 @@
 
           <div>
             <h3> Intitulé du post :</h3>
-              <input type="text" name="nom_post" required="required" value="">
+              <input type="text" name="nom_post" required="required">
+          </div>
+
+          <!-- Description du poste -->
+
+          <div>
+            <h3> Description :</h3>
+              <input type="text" name="description" required="required">
           </div>
 
           <!-- Saisie du type post-->
 
         <div>
           <h3>Type de l'offre :</h3>
+          <div>
+            <input type="radio" name="contrat" value="cdi" checked />
+                <label>CDI</label>
+            <input type="radio" name="contrat" value="cdd" />
+                <label>CDD</label>
+            <input type="radio" name="contrat" value="interim" />
+                <label>Intérim</label>
 
-          <input type="checkbox" name="doc_cv" required="required" />CDI
-          <input type="checkbox" name="doc_lm" required="required" />CDD
-          <input type="checkbox" name="doc_video" required="required" />Intérim
         </div>
+
+
 
           <!-- Saisie Compétences-->
 
@@ -78,9 +117,9 @@
         <div>
           <h3>Documents à fournir :</h3>
 
-          <input type="checkbox" name="doc_cv" required="required" />CV
-          <input type="checkbox" name="doc_lm" required="required" />Lettre motivation
-          <input type="checkbox" name="doc_video" required="required" />Vidéo
+          <input type="checkbox" name="doc_cv" />CV
+          <input type="checkbox" name="doc_lm" />Lettre motivation
+          <input type="checkbox" name="doc_video" />Vidéo
         </div>
 
         <!-- Saisie vidéo en url-->
@@ -95,7 +134,7 @@
         <input type="submit" name="soumettre" value="Ajouter/Valider"/>
       </div>
 
-
-
     </body>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 </html>
