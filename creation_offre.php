@@ -40,7 +40,7 @@
         </div>
       </nav>
 
-      <form action="creation_offre.php" method="post">
+      <form action="envois/creer_offre_envois.php" method="post">
         <h1> Création de l'offre : </h1>
 
       <!-- Conteneur du formulaire -->
@@ -51,7 +51,14 @@
 
           <div>
             <h3> Intitulé du post :</h3>
-              <input type="text" name="nom_post" required="required" value="">
+              <input type="text" name="nom_post" required="required">
+          </div>
+
+          <!-- Description du poste -->
+
+          <div>
+            <h3> Description :</h3>
+              <input type="text" name="description" required="required">
           </div>
 
           <!-- Saisie du type post-->
@@ -59,9 +66,9 @@
         <div>
           <h3>Type de l'offre :</h3>
 
-          <input type="checkbox" name="doc_cv" required="required" />CDI
-          <input type="checkbox" name="doc_lm" required="required" />CDD
-          <input type="checkbox" name="doc_video" required="required" />Intérim
+          <input type="radio" name="cdi" value=""required="required" />CDI
+          <input type="radio" name="cdd" required="required" />CDD
+          <input type="radio" name="interim" required="required" />Intérim
         </div>
 
           <!-- Saisie Compétences-->
@@ -113,8 +120,6 @@
           <div>
             <input type="submit" name="soumettre" value="Ajouter/Valider"/>
           </div>
-<br /><br /><br /><br /><br /><br />
-
 
     </body>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>

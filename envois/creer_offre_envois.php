@@ -11,12 +11,15 @@
 
         //// TODO: Recuperer les données du formulaire via post
 
-        if(isset($_POST['date_limite'])){
-            $dateLimite = $_POST['date_limite'];
+        if(isset($_POST['date_depots'])){
+            $dateLimite = $_POST['date_depots'];
+            echo $dateLimite;
         }
 
+        //// TODO: FAIRE DES ATTRIBUTS DANS BDD : Lieu, Type de contrat, et vrai decription
         if(isset($_POST['description'])){
             $description = $_POST['description'];
+            echo $description
         }
 
         //Id qui relie à la table docs (avec bool)
@@ -27,20 +30,21 @@
         //id du RH
         if(isset($_POST['id_personne'])){
             $idPersonne = $_POST['id_personne'];
+            $idPersonne = 0;
         }
 
         //Titre
-        if(isset($_POST['libelle'])){
-            $lib = $_POST['libelle'];
+        if(isset($_POST['nom_post'])){
+            $lib = $_POST['nom_post'];
         }
 
-        if(isset($_POST['libelle'])){
-            $lib = $_POST['libelle'];
+        if(isset($_POST['url'])){
+            $video = $_POST['url'];
         }
 
         //TODO
         //id_personne dependra de la session de l'utilisateur
-        $requete = "INSERT INTO offre_emplois(id_offre, date_limite, description, id_candidature, id_docs_offre, id_personne, libelle, video) VALUES ('.$dateLimite.', '.$description.', '.'.$idDocsOffre.', '.'.$description.')";
+        $requete = "INSERT INTO offre_emplois(date_limite, description, id_personne, libelle, video) VALUES ('.$dateLimite.', '.$description.', '.$idPersonne.', '.$lib.', '.$video.')";
         $resultat = mysqli_query($connexion, $requete);
 
         $erreur = false;
