@@ -14,32 +14,53 @@
         if(isset($_POST['date_depots'])){
             $dateLimite = $_POST['date_depots'];
             echo $dateLimite;
+            echo '<br />';
         }
 
         //// TODO: FAIRE DES ATTRIBUTS DANS BDD : Lieu, Type de contrat, et vrai decription
         if(isset($_POST['description'])){
             $description = $_POST['description'];
-            echo $description
+            echo $description;
+            echo '<br />';
         }
 
-        //Id qui relie à la table docs (avec bool)
-        if(isset($_POST['id_docs_offre'])){
-            $idDocsOffre = $_POST['id_docs_offre'];
+        if(isset($_POST['doc_cv'])){
+            $doc_cv = true;
+            echo $doc_cv;
+            echo '<br />';
+        }
+
+        if(isset($_POST['doc_lm'])){
+            $doc_cv = true;
+            echo $doc_cv;
+            echo '<br />';
+        }
+
+        if(isset($_POST['doc_video'])){
+            $doc_cv = true;
+            echo $doc_cv;
+            echo '<br />';
         }
 
         //id du RH
         if(isset($_POST['id_personne'])){
             $idPersonne = $_POST['id_personne'];
             $idPersonne = 0;
+            echo $idPersonne;
+            echo '<br />';
         }
 
         //Titre
         if(isset($_POST['nom_post'])){
             $lib = $_POST['nom_post'];
+            echo $lib;
+            echo '<br />';
         }
 
         if(isset($_POST['url'])){
             $video = $_POST['url'];
+            echo $video;
+            echo '<br />';
         }
 
         //TODO
@@ -56,7 +77,7 @@
             echo 'L\'envoi a échoué';
         }
         else{
-            echo 'Le fournisseur a bien été ajouté !<br />';
+            echo 'L\'offre d\'emplois a bien été créer !<br />';
         }
         echo '<a href="../ajout.php">Retour</a>';
     ?>

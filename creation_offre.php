@@ -65,11 +65,17 @@
 
         <div>
           <h3>Type de l'offre :</h3>
+          <div>
+            <input type="radio" name="contrat" value="cdi" checked />
+                <label>CDI</label>
+            <input type="radio" name="contrat" value="cdd" />
+                <label>CDD</label>
+            <input type="radio" name="contrat" value="interim" />
+                <label>Intérim</label>
 
-          <input type="radio" name="cdi" value=""required="required" />CDI
-          <input type="radio" name="cdd" required="required" />CDD
-          <input type="radio" name="interim" required="required" />Intérim
         </div>
+
+
 
           <!-- Saisie Compétences-->
 
@@ -104,9 +110,9 @@
         <div>
           <h3>Documents à fournir :</h3>
 
-          <input type="checkbox" name="doc_cv" required="required" />CV
-          <input type="checkbox" name="doc_lm" required="required" />Lettre motivation
-          <input type="checkbox" name="doc_video" required="required" />Vidéo
+          <input type="checkbox" name="doc_cv" />CV
+          <input type="checkbox" name="doc_lm" />Lettre motivation
+          <input type="checkbox" name="doc_video" />Vidéo
         </div>
 
         <!-- Saisie vidéo en url-->
