@@ -24,30 +24,55 @@
             echo '<br />';
         }
 
+        if(isset($_POST['lieu'])){
+            $lieu = $_POST['lieu'];
+            echo $lieu;
+            echo '<br />';
+        }
+
+        if(isset($_POST['salaire'])){
+            $salaire = $_POST['salaire'];
+            echo $salaire;
+            echo '<br />';
+        }
+
+        if(isset($_POST['contrat'])){
+            $contrat = $_POST['contrat'];
+            echo $contrat;
+            echo '<br />';
+        }
+
         if(isset($_POST['doc_cv'])){
             $doc_cv = true;
             echo $doc_cv;
             echo '<br />';
         }
+        else{
+          $doc_cv = false;
+        }
 
         if(isset($_POST['doc_lm'])){
-            $doc_cv = true;
-            echo $doc_cv;
+            $doc_lm = true;
+            echo $doc_lm;
             echo '<br />';
+        }
+        else{
+          $doc_lm = false;
         }
 
         if(isset($_POST['doc_video'])){
-            $doc_cv = true;
-            echo $doc_cv;
+            $doc_video = true;
+            echo $doc_video;
             echo '<br />';
+        }
+        else{
+          $doc_video = false;
         }
 
         //id du RH
+        $idPersonne = 0;
         if(isset($_POST['id_personne'])){
             $idPersonne = $_POST['id_personne'];
-            $idPersonne = 0;
-            echo $idPersonne;
-            echo '<br />';
         }
 
         //Titre
@@ -65,7 +90,8 @@
 
         //TODO
         //id_personne dependra de la session de l'utilisateur
-        $requete = "INSERT INTO offre_emplois(date_limite, description, id_personne, libelle, video) VALUES ('.$dateLimite.', '.$description.', '.$idPersonne.', '.$lib.', '.$video.')";
+        $requete = "INSERT INTO offre_emplois(date_limite, description, id_personne, libelle, video, lieu, salaire, type_contrat) VALUES ('$dateLimite', '$description', $idPersonne, '$lib', '$video', '$lieu', $salaire, '$contrat')";
+        echo $requete;
         $resultat = mysqli_query($connexion, $requete);
 
         $erreur = false;

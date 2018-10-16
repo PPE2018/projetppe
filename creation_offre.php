@@ -58,7 +58,7 @@
 
           <div>
             <h3> Description :</h3>
-              <TEXTAREA name="nom" rows=4 cols=40>Valeur par défaut</TEXTAREA>
+              <TEXTAREA name="description" rows=4 cols=40></TEXTAREA>
                 <!-- on a deux fois soit on fait un size qui modifie la longeur de la case soit on modifie la long et larg mais il y a
               un pb de saisie -->
 
@@ -97,7 +97,7 @@
 
           <div>
             <h3>Lieu :</h3>
-              <input type="text" name="nom_lieu" required="required" value="" />
+              <input type="text" name="lieu" required="required" value="" />
           </div>
 
           <!-- Saisie du salaire-->

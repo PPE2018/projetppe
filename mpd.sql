@@ -65,12 +65,15 @@ CREATE TABLE RH(
 #------------------------------------------------------------
 
 CREATE TABLE OFFRE_EMPLOIS(
-        id_offre    Int  Auto_increment  NOT NULL ,
-        libelle     Varchar (50) NOT NULL ,
-        description Varchar (50) NOT NULL ,
-        date_limite Date NOT NULL ,
-        video       Varchar (50) NOT NULL ,
-        id_personne Int NOT NULL
+        id_offre     Int  Auto_increment  NOT NULL ,
+        libelle      Varchar (50) NOT NULL ,
+        description  Varchar (500) NOT NULL ,
+        lieu         Varchar (50) NOT NULL ,
+        type_contrat Varchar (50) NOT NULL ,
+        salaire      Float   (10) NOT NULL ,
+        date_limite  Date NOT NULL ,
+        video        Varchar (500) NOT NULL ,
+        id_personne  Int NOT NULL
 	,CONSTRAINT OFFRE_EMPLOIS_PK PRIMARY KEY (id_offre)
 
 	,CONSTRAINT OFFRE_EMPLOIS_RH_FK FOREIGN KEY (id_personne) REFERENCES RH(id_personne)
