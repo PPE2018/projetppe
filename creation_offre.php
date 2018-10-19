@@ -58,7 +58,7 @@
 
           <div>
             <h3> Description :</h3>
-              <TEXTAREA name="description" rows=4 cols=40></TEXTAREA>
+              <TEXTAREA name="description" rows=4 cols=40 required="required"></TEXTAREA>
                 <!-- on a deux fois soit on fait un size qui modifie la longeur de la case soit on modifie la long et larg mais il y a
               un pb de saisie -->
 
@@ -83,15 +83,28 @@
           <!-- Saisie Compétences-->
 
           <div>
-            <h3> Compétences :</h3>
-              <input type="submit" name="soumettre" value="+"/>
-            <select name="Compétence">
+            <h3> Compétences : </h3>
+            <h6> Appuyer sur le bouton ctrl (sur Windows) ou Command (Mac) pour sélectionner plusieurs compétences</h6>
+
+            <select name="Compétence" multiple>
               <option value="Compétence_1">Compétence_1</option>
               <option value="Compétence_2">Compétence_2</option>
               <option value="Compétence_3">Compétence_3</option>
               <option value="Compétence_4">Compétence_4</option>
+              <option value="Compétence_4">Compétence_5</option>
+              <option value="Compétence_4">Compétence_6</option>
+              <option value="Compétence_4">Compétence_7</option>
             </select>
+            <input type="submit" name="ajouter" value="Ajouter"/>
           </div>
+
+          <!-- A FAIRE Afficher les compétences dans une textarea-->
+
+          <?php
+
+          ?>
+          
+          <TEXTAREA name="description" rows=4 cols=40 required="required"></TEXTAREA>
 
           <!-- Saisie le lieu-->
 

@@ -42,8 +42,10 @@
         </nav>
       <h1> Consultation des offres: </h1>
 
-
       
+
+
+
 
 
     </body>

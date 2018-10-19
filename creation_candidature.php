@@ -2,7 +2,6 @@
     <head>
         <title>Création_Candidature :</title>
         <meta charset="UTF-8">
-
     </head>
     <body>
 
@@ -14,13 +13,10 @@
 
       <div>
         <h3>CV :</h3>
-          <input type="text" name="nom_CV" required="required" value="" />
-
-            <!-- Ajouter le CV-->
-          <div>
-            <input type="submit" name="soumettre" value="Ajouter un CV"/>
-          </div>
-      </div>
+        <label for="mon_fichier">Insérer le CV (tous formats | max. 1 Mo) :</label><br />
+        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+        <input type="file" name="mon_fichier" id="mon_fichier" /><br />
+        <input type="text" name="nom_CV" required="required" value="" />
 
       <!-- Saisie le lm-->
 
