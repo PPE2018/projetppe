@@ -118,7 +118,7 @@ CREATE TABLE COMPETENCE(
 #------------------------------------------------------------
 
 CREATE TABLE NECESSITE(
-        id       Int NOT NULL ,
+        id       Int Auto_increment NOT NULL ,
         id_offre Int NOT NULL
 	,CONSTRAINT NECESSITE_PK PRIMARY KEY (id,id_offre)
 
@@ -132,7 +132,7 @@ CREATE TABLE NECESSITE(
 #------------------------------------------------------------
 
 CREATE TABLE DEPOSER(
-        id             Int NOT NULL ,
+        id             Int Auto_increment NOT NULL ,
         id_candidature Int NOT NULL ,
         url            Varchar (50) NOT NULL
 	,CONSTRAINT DEPOSER_PK PRIMARY KEY (id,id_candidature)
