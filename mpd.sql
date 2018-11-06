@@ -91,11 +91,9 @@ CREATE TABLE CANDIDATURE(
         id_offre          Int NOT NULL ,
         id_personne       Int NOT NULL
 	,CONSTRAINT CANDIDATURE_PK PRIMARY KEY (id_candidature)
-
 	,CONSTRAINT CANDIDATURE_OFFRE_EMPLOIS_FK FOREIGN KEY (id_offre) REFERENCES OFFRE_EMPLOIS(id_offre)
 	,CONSTRAINT CANDIDATURE_CANDIDAT0_FK FOREIGN KEY (id_personne) REFERENCES CANDIDAT(id_personne)
 )ENGINE=InnoDB;
-
 
 #------------------------------------------------------------
 # Table: COMPETENCE
@@ -103,15 +101,34 @@ CREATE TABLE CANDIDATURE(
 
 CREATE TABLE COMPETENCE(
         id_competence Int  Auto_increment  NOT NULL ,
-        libelle       Varchar (50) NOT NULL ,
-        id_personne   Int NOT NULL ,
-        id_offre      Int NOT NULL
+        libelle       Varchar (50) NOT NULL
 	,CONSTRAINT COMPETENCE_PK PRIMARY KEY (id_competence)
 
-	,CONSTRAINT COMPETENCE_CANDIDAT_FK FOREIGN KEY (id_personne) REFERENCES CANDIDAT(id_personne)
-	,CONSTRAINT COMPETENCE_OFFRE_EMPLOIS0_FK FOREIGN KEY (id_offre) REFERENCES OFFRE_EMPLOIS(id_offre)
 )ENGINE=InnoDB;
 
+#------------------------------------------------------------
+# Table: AVOIR
+#------------------------------------------------------------
+
+CREATE TABLE AVOIR(
+        id_competence Int Auto_increment NOT NULL ,
+        id_personne   Int NOT NULL
+        ,CONSTRAINT AVOIR_PK PRIMARY KEY (id_competence, id_personne)
+        ,CONSTRAINT AVOIR_FK_O FOREIGN KEY (id_competence) REFERENCES COMPETENCE(id_competence)
+        ,CONSTRAINT AVOIR_FK_P FOREIGN KEY (id_personne) REFERENCES PERSONNE(id_personne)
+)ENGINE=InnoDB;
+
+#------------------------------------------------------------
+# Table: POSSEDER
+#------------------------------------------------------------
+
+CREATE TABLE POSSEDER(
+        id_competence Int Auto_increment NOT NULL ,
+        id_offre      Int NOT NULL
+        ,CONSTRAINT POSSEDER_PK PRIMARY KEY (id_competence, id_offre)
+        ,CONSTRAINT POSSEDER_FK_C FOREIGN KEY (id_competence) REFERENCES COMPETENCE(id_competence)
+	      ,CONSTRAINT POSSEDER_FK_O FOREIGN KEY (id_offre) REFERENCES OFFRE_EMPLOIS(id_offre)
+)ENGINE=InnoDB;
 
 #------------------------------------------------------------
 # Table: NECESSITE

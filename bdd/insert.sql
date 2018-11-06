@@ -28,40 +28,49 @@ INSERT INTO candidature(id_offre, id_personne, date_candidature, reception) VALU
 (2, 2, '2018-09-18', false),
 (3, 3, '2018-11-10', false);
 
-INSERT INTO competence(id_offre) VALUES
-(1),
-(3);
+INSERT INTO COMPETENCE(libelle) VALUES
+('Anglais'),
+('Français'),
+('Espagnol');
 
-INSERT INTO comptence(id_personne, libelle) VALUES
-(1, 'Anglais'),
-(2, 'Français'),
-(3, 'Espagnol');
+INSERT INTO AVOIR(id_personne, id_competence) VALUES
+(1, 1),
+(1, 2),
+(2, 1),
+(2, 3),
+(3, 1);
+
+INSERT INTO POSSEDER(id_offre, id_competence) VALUES
+(1, 1),
+(1, 2),
+(2, 3),
+(3, 2);
 
 INSERT INTO docs(libelle) VALUES
 ('CV'),
 ('Lettre de motivation'),
 ('Vidéos');
 
-INSERT INTO necessite(id_offre) VALUES
-(1),
-(1),
-(1),
+INSERT INTO necessite(id, id_offre) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
 
-(2),
-(2),
+(1, 2),
+(2, 2),
 
-(3),
-(3),
-(3);
+(1, 3),
+(2, 3),
+(3, 3);
 
-INSERT INTO deposer(id_candidature, url) VALUES
-(1, "url1"),
-(1, "url2"),
-(1, "url3"),
+INSERT INTO deposer(id_candidature, url, id) VALUES
+(1, "url1", 1),
+(1, "url2", 2),
+(1, "url3", 3),
 
-(2, "url1"),
-(2, "url2"),
+(2, "url1", 1),
+(2, "url2", 2),
 
-(3, "url1"),
-(3, "url2"),
-(3, "url3");
+(3, "url1", 1),
+(3, "url2", 2),
+(3, "url3", 3);
