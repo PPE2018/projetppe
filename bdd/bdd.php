@@ -8,6 +8,7 @@
         <?php
             //Connexion au serveur
             $connexion = mysqli_connect('localhost', 'root', '');
+            mysqli_set_charset($connexion, "utf8");
             if(!$connexion){
                 echo 'Erreur lors de la connexion<br />';
             }

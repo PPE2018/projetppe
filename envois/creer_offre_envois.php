@@ -7,7 +7,6 @@
 <body>
     <?php
         include '../bdd/bdd.php';
-
         if(isset($_POST['date_depots'])){
             $dateLimite = $_POST['date_depots'];
         }
@@ -89,6 +88,8 @@
             $requete = "INSERT INTO NECESSITE(id, id_offre) VALUES (3, $idOffre)";
             $resultat = mysqli_query($connexion, $requete);
         }
+
+
 
         $erreur = false;
         if(!$resultat)

@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
@@ -39,114 +40,109 @@
           </ul>
         </div>
       </nav>
+      <div class="form-style-2">
+        <div class="form-style-2-heading">Création de l'offre </div>
+          <form action="envois/creer_offre_envois.php" method="post">
 
-      <form action="envois/creer_offre_envois.php" method="post">
-        <h1> Création de l'offre : </h1>
+          <!-- Conteneur du formulaire -->
 
-      <!-- Conteneur du formulaire -->
+          <div id="conteneur01">
 
-      <div id="conteneur01">
+              <!-- Saisie de l'Intitulé du post-->
 
-          <!-- Saisie de l'Intitulé du post-->
+              <label for="nom_post">
+                <span>Intitulé du poste : <span class="required">*</span></span>
+                <input type="text" class="input-field" name="nom_post" value="" required="required"/>
+              </label>
+              <!-- Description du poste -->
+
+
+              <label for="description">
+                <span>Description : <span class="required">*</span></span>
+                <textarea name="description" class="textarea-field" rows=4 cols=40 required="required"></textarea>
+              </label>
+              <!-- Saisie du type post-->
+
+            <div>
+              <label for="contrat">
+                <span>Type de l'offre : <span class="required">*</span></span>
+                <input type="radio" class="ratio-field" name="contrat" value="CDI" checked />
+                    CDI
+                <input type="radio" class="ratio-field" name="contrat" value="CDD" />
+                    CDD
+                <input type="radio" class="ratio-field" name="contrat" value="Interim" />
+                    Intérim
+              </label>
+              <!-- Saisie Compétences-->
+
+              <div>
+                <h3> Compétences : </h3>
+                <h6> Appuyer sur le bouton ctrl (sur Windows) ou Command (Mac) pour sélectionner plusieurs compétences</h6>
+                <select name="competences" multiple>
+                  <?php
+                  include 'bdd/bdd.php';
+                  $requete = "SELECT libelle FROM competence;";
+                  $resultat = mysqli_query($connexion, $requete);
+                  while ($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){ ?>
+                      <option value="<?php echo $ligne['libelle']; ?>"><?php echo $ligne['libelle']; ?></option>';
+                  <?php
+                  }
+                  ?>
+                </select>
+                <br />
+                <input type="submit" name="ajouter" value="Ajouter"/>
+              </div>
+
+              <!-- A FAIRE Afficher les compétences dans une textarea-->
+
+              <?php
+
+              ?>
+              <!-- Saisie le lieu-->
+
+              <div>
+                <h3>Lieu :</h3>
+                  <input type="text" name="lieu" required="required" value="" />
+              </div>
+
+              <!-- Saisie du salaire-->
+
+              <div>
+                <h3>Salaire annuel :</h3>
+                  <input type="int" name="salaire" required="required" value="" max="10" />
+              </div>
+
+                <!-- Saisie de la date limite de dépots-->
+
+              <div>
+                <h3> Date limite de dépots :</h3>
+
+                <input type="date" name="date_depots" required="required" >
+              </div>
+
+              <!-- Saisie documents a fournir (cases à cocher)-->
+
+            <div>
+              <h3>Documents à fournir :</h3>
+
+              <input type="checkbox" name="doc_cv" />CV
+              <input type="checkbox" name="doc_lm" />Lettre motivation
+              <input type="checkbox" name="doc_video" />Vidéo
+            </div>
+
+            <!-- Saisie vidéo en url-->
 
           <div>
-            <h3> Intitulé du post :</h3>
-              <input type="text" name="nom_post" required="required">
+            <h3>URL de la Vidéo :</h3>
+
+            <input type="url" name="url" required="required" value="" />
           </div>
 
-          <!-- Description du poste -->
-
           <div>
-            <h3> Description :</h3>
-              <TEXTAREA name="description" rows=4 cols=40 required="required"></TEXTAREA>
-                <!-- on a deux fois soit on fait un size qui modifie la longeur de la case soit on modifie la long et larg mais il y a
-              un pb de saisie -->
-
+            <input type="submit" name="soumettre" value="Ajouter/Valider"/>
           </div>
-
-          <!-- Saisie du type post-->
-
-        <div>
-          <h3>Type de l'offre :</h3>
-          <div>
-            <input type="radio" name="contrat" value="cdi" checked />
-                <label>CDI</label>
-            <input type="radio" name="contrat" value="cdd" />
-                <label>CDD</label>
-            <input type="radio" name="contrat" value="interim" />
-                <label>Intérim</label>
-
-        </div>
-
-
-
-          <!-- Saisie Compétences-->
-
-          <div>
-            <h3> Compétences : </h3>
-            <h6> Appuyer sur le bouton ctrl (sur Windows) ou Command (Mac) pour sélectionner plusieurs compétences</h6>
-
-            <select name="Compétence" multiple>
-              <option value="Compétence_1">Compétence_1</option>
-              <option value="Compétence_2">Compétence_2</option>
-              <option value="Compétence_3">Compétence_3</option>
-              <option value="Compétence_4">Compétence_4</option>
-              <option value="Compétence_4">Compétence_5</option>
-              <option value="Compétence_4">Compétence_6</option>
-              <option value="Compétence_4">Compétence_7</option>
-            </select>
-            <input type="submit" name="ajouter" value="Ajouter"/>
-          </div>
-
-          <!-- A FAIRE Afficher les compétences dans une textarea-->
-
-          <?php
-
-          ?>
-          <!-- Saisie le lieu-->
-
-          <div>
-            <h3>Lieu :</h3>
-              <input type="text" name="lieu" required="required" value="" />
-          </div>
-
-          <!-- Saisie du salaire-->
-
-          <div>
-            <h3>Salaire annuel :</h3>
-              <input type="int" name="salaire" required="required" value="" max="10" />
-          </div>
-
-            <!-- Saisie de la date limite de dépots-->
-
-          <div>
-            <h3> Date limite de dépots :</h3>
-
-            <input type="date" name="date_depots" required="required" >
-          </div>
-
-          <!-- Saisie documents a fournir (cases à cocher)-->
-
-        <div>
-          <h3>Documents à fournir :</h3>
-
-          <input type="checkbox" name="doc_cv" />CV
-          <input type="checkbox" name="doc_lm" />Lettre motivation
-          <input type="checkbox" name="doc_video" />Vidéo
-        </div>
-
-        <!-- Saisie vidéo en url-->
-
-      <div>
-        <h3>Vidéos :</h3>
-
-        <input type="url" name="url" required="required" value="" />
+        </form>
       </div>
-
-      <div>
-        <input type="submit" name="soumettre" value="Ajouter/Valider"/>
-      </div>
-
     </body>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
