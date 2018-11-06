@@ -103,9 +103,6 @@
           <?php
 
           ?>
-          
-          <TEXTAREA name="description" rows=4 cols=40 required="required"></TEXTAREA>
-
           <!-- Saisie le lieu-->
 
           <div>

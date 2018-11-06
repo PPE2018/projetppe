@@ -42,35 +42,8 @@
             echo '<br />';
         }
 
-        if(isset($_POST['doc_cv'])){
-            $doc_cv = true;
-            echo $doc_cv;
-            echo '<br />';
-        }
-        else{
-          $doc_cv = false;
-        }
-
-        if(isset($_POST['doc_lm'])){
-            $doc_lm = true;
-            echo $doc_lm;
-            echo '<br />';
-        }
-        else{
-          $doc_lm = false;
-        }
-
-        if(isset($_POST['doc_video'])){
-            $doc_video = true;
-            echo $doc_video;
-            echo '<br />';
-        }
-        else{
-          $doc_video = false;
-        }
-
         //id du RH
-        $idPersonne = 0;
+        $idPersonne = 4;
         if(isset($_POST['id_personne'])){
             $idPersonne = $_POST['id_personne'];
         }
@@ -93,6 +66,51 @@
         $requete = "INSERT INTO offre_emplois(date_limite, description, id_personne, libelle, video, lieu, salaire, type_contrat) VALUES ('$dateLimite', '$description', $idPersonne, '$lib', '$video', '$lieu', $salaire, '$contrat')";
         echo $requete;
         $resultat = mysqli_query($connexion, $requete);
+
+        if(isset($_POST['doc_cv'])){
+            $doc_cv = true;
+            echo '<br />';
+        }
+        else{
+          $doc_cv = false;
+        }
+
+        if(isset($_POST['doc_lm'])){
+            $doc_lm = true;
+            echo '<br />';
+        }
+        else{
+          $doc_lm = false;
+        }
+
+        if(isset($_POST['doc_video'])){
+            $doc_video = true;
+            echo '<br />';
+        }
+        else{
+          $doc_video = false;
+        }
+
+        $requete = "SELECT id_offre FROM OFFRE_EMPLOIS ORDER BY id_offre DESC LIMIT 1;";
+        $resultat = mysqli_query($connexion, $requete);
+        while ($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
+            $idOffre = $ligne['id_offre'];
+        }
+
+        if($doc_cv){
+            $requete = "INSERT INTO NECESSITE(id, id_offre) VALUES (1, $idOffre)";
+            $resultat = mysqli_query($connexion, $requete);
+        }
+
+        if($doc_lm){
+            $requete = "INSERT INTO NECESSITE(id, id_offre) VALUES (2, $idOffre)";
+            $resultat = mysqli_query($connexion, $requete);
+        }
+
+        if($doc_video){
+            $requete = "INSERT INTO NECESSITE(id, id_offre) VALUES (3, $idOffre)";
+            $resultat = mysqli_query($connexion, $requete);
+        }
 
         $erreur = false;
         if(!$resultat)
