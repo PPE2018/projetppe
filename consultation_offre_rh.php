@@ -58,8 +58,8 @@
                     // on affiche le bouton
                     echo "</div>
                           <div class='btn-group text-center'>
-                            <button type='button' class='btn btn-light'>Modifier</button>
-                            <button type='button' class='btn btn-dark'>Réception candidatures</button>
+                            <button href='#' type='button' class='btn btn-light'>Modifier</button>
+                            <button href='#' type='button' class='btn btn-dark'>Réception candidatures</button>
                           </div>
 
                           </div>";
@@ -96,8 +96,8 @@
               }
               echo "</div>
                     <div class='btn-group '>
-                      <button type='button' class='btn btn-light'>Modifier</button>
-                      <button type='button' class='btn btn-dark'>Réception candidatures</button>
+                      <button  href='#' type='button' class='btn btn-light'>Modifier</button>
+                      <button  href='#' type='button' class='btn btn-dark'>Réception candidatures</button>
                     </div>
                     </div>";
 
