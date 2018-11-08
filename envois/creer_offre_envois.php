@@ -99,9 +99,7 @@
             $resultat = mysqli_query($connexion, $requete);
            }
          }
-
-
-
+         
         $erreur = false;
         if(!$resultat)
             $erreur = true;

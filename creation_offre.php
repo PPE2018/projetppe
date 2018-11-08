@@ -83,6 +83,7 @@
                 </select>
                 <br />
                 <input type="submit" class="btn btn-secondary" name="ajouter" value="Ajouter"/>
+                <<input type="text" class="form-control" name="nom_post" value="" required="required"/>
               </div>
 
               <!-- A FAIRE Afficher les compétences dans une textarea-->

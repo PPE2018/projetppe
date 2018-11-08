@@ -45,46 +45,89 @@
           <div class="row">
               <?php
               include 'bdd/bdd.php';
-              $resultat=mysqli_query($connexion, 'SELECT * FROM offre_emplois'); /*permet d'afficher les données*/
-              while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH))
+              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
+              $ligne = mysqli_fetch_array($resultat);
+              $libelle = $ligne['libelle_offre'];
+              $desc=$ligne['description'];
+              $lieu=$ligne['lieu'];
+              $typecontr=$ligne['type_contrat'];
+              $salaire= $ligne['salaire'];
+              $datelim=$ligne['date_limite'];
+              $video=$ligne['video'];
+              $competence = $ligne['libelle'];
+              echo"<div class='col-sm-8'>
+                      <div class='card bg-secondary text-white'>
+                        <div class='card-body'>
+                          $libelle<br/>
+                        </div>
+                        <div classe='card-body1'>
+                          $desc
+                          <br/> Lieu : $lieu
+                          <br/> Type de contrat : $typecontr
+                          <br/> Salaire annuel en euros : $salaire
+                          <br/> Date limite : $datelim
+                          <br/> URL de la vidéo : $video
+                          <br/> Compétences : $competence";
+              while($ligne = mysqli_fetch_array($resultat))
               {
-                $libelle = $ligne['libelle'];
-                $desc=$ligne['description'];
-                $lieu=$ligne['lieu'];
-                $typecontr=$ligne['type_contrat'];
-                $salaire= $ligne['salaire'];
-                $datelim=$ligne['date_limite'];
-                $video=$ligne['video'];
-                echo"<div class='col-sm-8'>
-                        <div class='card bg-secondary text-white'>
-                          <div class='card-body'>
-                            $libelle<br/>
-                          </div>
-                          <div classe='card-body1'>
-                            $desc
-                            <br/> Lieu : $lieu
-                            <br/> type de contrat : $typecontr
-                            <br/>Salaire annuel en euros : $salaire
-                            <br/> Date limite : $datelim
-                            <br/> URL de la vidéo : $video
-                            <br/>
-                            <br/>
-                            <br/>
-                          </div>
+                if($libelle != $ligne['libelle_offre']){
+                  echo '</div></div></div>';
+                  echo "
+                  <div class='container1'>
+                    <div class='row'>
+                      <div class='col-sm-4'>
+                        <div class='btn-group-vertical'>
+                          <a href='#' class='btn btn-info' role='button'>Réception de candidatures</a>
+                          <a href='creation_offre.php' class='btn btn-info' role='button'>Modifier</a>
+                          <input type='submit' class='btn btn-info' value='Supprimer'>
                         </div>
                       </div>
-                      <div class='container1'>
-                        <div class='row'>
-                          <div class='col-sm-4'>
-                            <div class='btn-group-vertical'>
-                              <a href='#' class='btn btn-info' role='button'>Réception de candidatures</a>
-                              <a href='creation_offre.php' class='btn btn-info' role='button'>Modifier l'offre</a>
-                              <input type='submit' class='btn btn-info' value='Supprimer l'offre'>
+                    </div>
+                  </div>";
+                  $libelle = $ligne['libelle_offre'];
+                  $desc=$ligne['description'];
+                  $lieu=$ligne['lieu'];
+                  $typecontr=$ligne['type_contrat'];
+                  $salaire= $ligne['salaire'];
+                  $datelim=$ligne['date_limite'];
+                  $video=$ligne['video'];
+                  $competence = $ligne['libelle'];
+                  echo"<div class='col-sm-8'>
+                          <div class='card bg-secondary text-white'>
+                            <div class='card-body'>
+                              $libelle<br/>
                             </div>
-                          </div>
-                        </div>
-                      </div>";
+                            <div classe='card-body1'>
+                              $desc
+                              <br/> Lieu : $lieu
+                              <br/> Type de contrat : $typecontr
+                              <br/> Salaire annuel en euros : $salaire
+                              <br/> Date limite : $datelim
+                              <br/> URL de la vidéo : $video
+                              <br/> Compétences :
+                              <br /> - $competence";
+                }
+                else{
+                  echo "<br />-".$ligne['libelle'];
+                  $libelle = $ligne['libelle_offre'];
+                  echo '<br/>
+                  <br/>
+                </div>
+              </div>';
+                }
              }
+             echo "
+             <div class='container1'>
+               <div class='row'>
+                 <div class='col-sm-4'>
+                   <div class='btn-group-vertical'>
+                     <a href='#' class='btn btn-info' role='button'>Réception de candidatures</a>
+                     <a href='creation_offre.php' class='btn btn-info' role='button'>Modifier</a>
+                     <input type='submit' class='btn btn-info' value='Supprimer'>
+                   </div>
+                 </div>
+               </div>
+             </div>";
              ?>
           </div>
         </div>
