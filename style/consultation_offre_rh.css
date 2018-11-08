@@ -2,8 +2,13 @@
 {
   text-align: center;
 
-/* }
-.card bg-secondary text-white
+}
+.card-body1{
+  text-align: left;
+}
+.btn-group-vertical{
+}
+/* .card bg-secondary text-white
 {
   padding: 100px;
-} */
+} */ */
