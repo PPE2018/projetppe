@@ -38,6 +38,7 @@
             $lib = $_POST['nom_post'];
         }
 
+        //URL
         if(isset($_POST['url'])){
             $video = $_POST['url'];
         }
@@ -68,6 +69,7 @@
           $doc_video = false;
         }
 
+        //Récupération de l'id de la dernière offre publié pour l'associer avec les documents
         $requete = "SELECT id_offre FROM OFFRE_EMPLOIS ORDER BY id_offre DESC LIMIT 1;";
         $resultat = mysqli_query($connexion, $requete);
         while ($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
@@ -89,6 +91,15 @@
             $resultat = mysqli_query($connexion, $requete);
         }
 
+        //Réupération des compétences
+        if(isset($_POST['competences']) && !empty($_POST['competences'])){
+          $Col1_Array = $_POST['competences'];
+          foreach($Col1_Array as $selectValue){
+            $requete = "INSERT INTO POSSEDER(id_competence, id_offre) VALUES ($selectValue, $idOffre)";
+            $resultat = mysqli_query($connexion, $requete);
+           }
+         }
+
 
 
         $erreur = false;
@@ -100,7 +111,7 @@
             echo 'L\'envoi a échoué';
         }
         else{
-            echo 'L\'offre d\'emplois a bien été créer !<br />';
+            echo 'L\'offre d\'emploi a bien été crée !<br />';
         }
         echo '<a href="../creation_offre.php">Retour</a>';
     ?>

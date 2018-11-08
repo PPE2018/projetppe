@@ -70,13 +70,13 @@
               <div class="form-group">
                 <label for="competences">Compétences :</label>
                 <h6> Appuyer sur le bouton ctrl (sur Windows) ou Command (Mac) pour sélectionner plusieurs compétences</h6>
-                <select class="form-control" name="competences" multiple>
+                <select class="form-control" name="competences[]" multiple>
                   <?php
                   include 'bdd/bdd.php';
-                  $requete = "SELECT libelle FROM competence;";
+                  $requete = "SELECT id_competence, libelle FROM competence;";
                   $resultat = mysqli_query($connexion, $requete);
                   while ($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){ ?>
-                      <option value="<?php echo $ligne['libelle']; ?>"><?php echo $ligne['libelle']; ?></option>';
+                      <option value="<?php echo $ligne['id_competence']; ?>"><?php echo $ligne['libelle']; ?></option>';
                   <?php
                   }
                   ?>
@@ -99,7 +99,7 @@
               <!-- Saisie du salaire-->
               <div class="form-group">
                 <label for="salaire">Salaire annuel :</label>
-                  <input type="int" class="form-control" name="salaire" required="required" value="" max="10" />
+                  <input type="number" class="form-control" name="salaire" required="required" value="" max="10" />
               </div>
 
               <!-- Saisie de la date limite de dépots-->
@@ -123,7 +123,7 @@
               </div>
               <!-- Bouton-->
               <div>
-                <input type="submit" class="btn btn-primary" name="soumettre" value="Ajouter"/>
+                <input type="submit" class="btn btn-primary" name="soumettre" value="Créer l'offre"/>
               </div>
         </div>
         </form>
