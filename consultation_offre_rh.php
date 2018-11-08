@@ -1,24 +1,3 @@
-<?php
-
-$link = mysqli_init();     // initialiser et connection au serveur
-
- $connection = mysqli_connect('localhost', 'root', ''); /* savoir si la connection au serveur de base de données*/
-if($connection){
-  //echo 'Connexion au serveur réussie <br/>';
-  $ok = mysqli_select_db($connection, 'ppe');
-  if($ok){
-    //echo'Base de données selectionner';
-  }
-  else{
-    //echo 'Echec de la sélection de la base';
-  }
-}
-else {
-  //echo ' Erreur de la connection';
-}
-
- ?>
-
 <html>
     <head>
         <title>Consultation des offres  :</title>
@@ -63,42 +42,45 @@ else {
         </nav>
 
         <div class="container">
-          <?php
+          <div class="row">
+              <?php
+              include 'bdd/bdd.php';
+              $resultat=mysqli_query($connexion, 'SELECT * FROM offre_emplois'); /*permet d'afficher les données*/
+              while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH))
+              {
+                $id=$ligne['id_offre'];
+                $libelle = $ligne['libelle'];
+                $desc=$ligne['description'];
+                $lieu=$ligne['lieu'];
+                $typecontr=$ligne['type_contrat'];
+                $salaire= $ligne['salaire'];
+                $datelim=$ligne['date_limite'];
+                $video=$ligne['video'];
 
-          $resultat=mysqli_query($connection, 'SELECT*  FROM offre_emplois'); /*permet d'afficher les données*/
-          while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH))
-          {
-            $id=$ligne['id_offre'];
-            $libelle = $ligne['libelle'];
-            $desc=$ligne['description'];
-            $lieu=$ligne['lieu'];
-            $typecontr=$ligne['type_contrat'];
-            $salaire= $ligne['salaire'];
-            $datelim=$ligne['date_limite'];
-            $video=$ligne['video'];
-
-            ?>
-            <div class="card bg-secondary text-white">
-
-              <div class="card-body">
-                <?php
-                  echo 'Consultation des offres : '.$id.'<br/> Nom emploi : '.$libelle.'<br/> Descriptif : '. $desc.'<br/> Lieu : '.$lieu.'<br/> type de contrat : '.$typecontr.'<br/>Salaire : '.$salaire.'<br/> Date limite : '.$datelim.'<br/> URL de la vidéo : '.$video.'<br/> <br/><br/>';
-                 ?>
-               </div>
+                ?>
+                <div class="col-sm-9">
+                  <div class="card bg-secondary text-white">
+                    <div class="card-body">
+                      <?php
+                        echo 'Consultation des offres : '.$id.'<br/> Nom emploi : '.$libelle.'<br/> Descriptif : '. $desc.'<br/> Lieu : '.$lieu.'<br/> type de contrat : '.$typecontr.'<br/>Salaire : '.$salaire.'<br/> Date limite : '.$datelim.'<br/> URL de la vidéo : '.$video.'<br/> <br/><br/>';
+                       ?>
+                    </div>
+                  </div>
+                </div>
+               <div class="col-sm-3">
                <a href="#" class="btn btn-info" role="button">Réception de candidatures</a>
                <a href="creation_offre.php" class="btn btn-info" role="button">Modifier l'offre</a>
                <input type="submit" class="btn btn-info" value="Supprimer l'offre">
-             </div>
-          <?php
-           }
-
-          ?>
-
-          <br>
+               </div>
+             <?php }  ?>
+          </div>
+        </div>
       </div>
 
     </body>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
   </html>
 <?php
-mysqli_close($connection);
+mysqli_close($connexion);
  ?>

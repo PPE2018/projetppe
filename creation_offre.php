@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarsExample05">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Consultation des offres</a>
+              <a class="nav-link" href="consultation_offre_rh.php">Consultation des offres</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="#">Création des offres</a>
