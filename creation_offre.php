@@ -46,25 +46,39 @@
               <!-- Saisie de l'Intitulé du post-->
               <div class="form-group">
                  <label for="nom_post">Intitulé du poste :</label>
-                  <input type="text" class="form-control" name="nom_post" value="" required="required"/>
+                  <input type="text" class="form-control" name="nom_post" value=""/>
               </div>
 
               <!-- Description du poste -->
               <div class="form-group">
                 <label for="description">Description :</label>
-                <textarea name="description" class="form-control" rows=4 cols=40 required="required"></textarea>
+                <textarea name="description" class="form-control" rows=4 cols=40></textarea>
               </div>
 
               <!-- Saisie du type post-->
               <div class="form-group">
-                <label for="contrat">Type de l'offre :</label><br />
-                <input type="radio" name="contrat" value="CDI" checked />
-                    CDI
-                <input type="radio" name="contrat" value="CDD" />
-                    CDD
-                <input type="radio" name="contrat" value="Interim" />
-                    Intérim
+                <label for="description">Type de l'offre :</label><br />
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="contrat" value="CDI" checked id="CDI">
+                  <label class="form-check-label" for="CDI">
+                      CDI
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="contrat" value="CDD" id="CDD">
+                  <label class="form-check-label" for="CDD">
+                      CDD
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="contrat" value="Interim" id="Interim">
+                  <label class="form-check-label" for="Interim">
+                      Interim
+                  </label>
+                </div>
               </div>
+
+
 
               <!-- Saisie Compétences-->
               <div class="form-group">
@@ -82,8 +96,18 @@
                   ?>
                 </select>
                 <br />
-                <input type="submit" class="btn btn-secondary" name="ajouter" value="Ajouter"/>
-                <<input type="text" class="form-control" name="nom_post" value="" required="required"/>
+                  <div class="row">
+                    <div class="form-group">
+                      <div class='col-sm-11'>
+                        <input type="text" class="form-control" name="libelle" value=""/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class='col-sm-0'>
+                        <input type="submit" class="btn btn-secondary" name="ajoutCompetence" value="Ajouter"/>
+                      </div>
+                    </div>
+                  </div>
               </div>
 
               <!-- A FAIRE Afficher les compétences dans une textarea-->
@@ -94,39 +118,53 @@
               <!-- Saisie le lieu-->
               <div class="form-group">
                 <label for="lieu">Lieu :</label>
-                  <input type="text" class="form-control" name="lieu" required="required" value="" />
+                  <input type="text" class="form-control" name="lieu" value="" />
               </div>
 
               <!-- Saisie du salaire-->
               <div class="form-group">
                 <label for="salaire">Salaire annuel :</label>
-                  <input type="number" class="form-control" name="salaire" required="required" value="" max="10" />
+                  <input type="number" class="form-control" name="salaire" value="" max="500000" />
               </div>
 
               <!-- Saisie de la date limite de dépots-->
               <div class="form-group">
                 <label for="date">Date limite de dépots :</label>
-                <input type="date" class="form-control" name="date_depots" required="required" >
+                <input type="date" class="form-control" name="date_depots">
               </div>
 
               <!-- Saisie documents a fournir (cases à cocher)-->
               <div class="form-group">
                 <label for="documents">Documents à fournir :</label><br />
-                <input type="checkbox" name="doc_cv" />CV
-                <input type="checkbox" name="doc_lm" />Lettre motivation
-                <input type="checkbox" name="doc_video" />Vidéo
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="doc_cv" value="doc_cv" checked id="doc_cv">
+                  <label class="form-check-label" for="doc_cv">
+                      CV
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="doc_lm" value="doc_lm" id="doc_lm">
+                  <label class="form-check-label" for="doc_lm">
+                      Lettre motivation
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name="doc_video" value="doc_video" id="doc_video">
+                  <label class="form-check-label" for="doc_video">
+                      Vidéo
+                  </label>
+                </div>
               </div>
 
               <!-- Saisie vidéo en url-->
               <div class="form-group">
                 <label for="url">URL de la Vidéo :</label>
-                <input type="url" class="form-control" name="url" required="required" value="" />
+                <input type="url" class="form-control" name="url" value="" />
               </div>
               <!-- Bouton-->
               <div>
-                <input type="submit" class="btn btn-primary" name="soumettre" value="Créer l'offre"/>
+                <input type="submit" class="btn btn-primary" name="creer_offre" value="Créer l'offre"/>
               </div>
-        </div>
         </form>
       </div>
     </body>
