@@ -73,6 +73,7 @@ CREATE TABLE OFFRE_EMPLOIS(
         salaire      Float   (10) NOT NULL ,
         date_limite  Date NOT NULL ,
         video        Varchar (500) NOT NULL ,
+        supprimer    Boolean NOT NULL,
         id_personne  Int NOT NULL
 	,CONSTRAINT OFFRE_EMPLOIS_PK PRIMARY KEY (id_offre)
 
@@ -178,10 +179,10 @@ INSERT INTO rh(id_personne, mdp, nom, prenom, poste) VALUES
 (6, 'mdp', 'Loan', 'Chantal', 'RH'),
 (7, 'mdp', 'Jacques', 'Pierre', 'RH');
 
-INSERT INTO offre_emplois (id_personne, date_limite, description, libelle, lieu, salaire, type_contrat, video) VALUES
-(4, '2019-06-20', 'Développeur, ...', 'Développeur', 'Lyon', 50000, 'CDI', 'https://0380081g.index-education.net/pronote/eleve.html?login=true'),
-(5, '2019-08-10', 'Bijouterie, ...', 'Bijouterie', 'Vienne', 25000, 'CDD', 'https://0380081g.index-education.net/pronote/eleve.html?login=true'),
-(6, '2019-02-11', 'Analyse, ...', 'Analyse', 'Luzinay', 110000, 'Interim', 'https://0380081g.index-education.net/pronote/eleve.html?login=true');
+INSERT INTO offre_emplois (id_personne, date_limite, description, libelle, lieu, salaire, type_contrat, video, supprimer) VALUES
+(4, '2019-06-20', 'Développeur, ...', 'Développeur', 'Lyon', 50000, 'CDI', 'https://0380081g.index-education.net/pronote/eleve.html?login=true',false ),
+(5, '2016-08-10', 'Bijouterie, ...', 'Bijouterie', 'Vienne', 25000, 'CDD', 'https://0380081g.index-education.net/pronote/eleve.html?login=true',true),
+(6, '2019-02-11', 'Analyse, ...', 'Analyse', 'Luzinay', 110000, 'Interim', 'https://0380081g.index-education.net/pronote/eleve.html?login=true', false);
 
 INSERT INTO candidature(id_offre, id_personne, date_candidature, reception) VALUES
 (1, 1, '2018-10-19', false),
