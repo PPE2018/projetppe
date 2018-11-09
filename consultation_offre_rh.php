@@ -85,11 +85,11 @@
                               <br/> Salaire annuel en euros : $salaire
                               <br/> Date limite : $datelim
                               <br/> URL de la vidéo : $video;
-                              <br/> Compétences : <br/> - $competence</p>";
+                              <br/> Compétences : <br/> - $competence";
                 }
                 else{
                   $competence = $ligne['libelle'];
-                  echo "<br/> - $competence";
+                  echo "<br />- $competence";
 
                 }
                 $id=$id_offre;
