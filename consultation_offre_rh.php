@@ -48,11 +48,18 @@
             <div classe='col-sm-4'>
               <?php
               include 'bdd/bdd.php';
-              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
+              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle WHERE supprimer = 0'); /*permet d'afficher les données*/
 
               $id = -1; //index impossible
               while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
                 $id_offre=$ligne['id_offre'];
+                $id_datelim=$ligne['date_limite'];
+                $datetime = date("Y-m-d ");
+
+                echo $datetime;
+                if ($datime> $datelim) {
+                  $supprimer="INSERT INTO offre_emplois(supprimer) VALUES 1 ";
+                }
                 if($id_offre!=$id){ // si id est différents de l'autre id
                   if ($id!=-1) {
                     // on affiche le bouton
@@ -60,6 +67,7 @@
                           <div class='btn-group text-center'>
                             <button href='#' type='button' class='btn btn-light'>Modifier</button>
                             <button href='#' type='button' class='btn btn-dark'>Réception candidatures</button>
+                            <button type='button' class='btn btn-danger'>Supprimer</button>
                           </div>
 
                           </div>";
@@ -98,6 +106,7 @@
                     <div class='btn-group '>
                       <button  href='#' type='button' class='btn btn-light'>Modifier</button>
                       <button  href='#' type='button' class='btn btn-dark'>Réception candidatures</button>
+                      <button type='button' class='btn btn-danger'>Supprimer</button>
                     </div>
                     </div>";
 
