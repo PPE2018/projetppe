@@ -56,7 +56,7 @@
         <h1>$str[18]</h1>
           <form action='envois/creer_offre_envois.php' method='post'>
               <!-- Saisie de l'Intitulé du post-->
-<<<<<<< HEAD
+
               <div class='form-group'>
                  <label for='nom_post'>$str[19] :</label>
                   <input type='text' class='form-control' name='nom_post' value='' required='required'/>
@@ -76,8 +76,7 @@
                 <input type='radio' name='contrat' value=$str[23] />
                     CDD
                 <input type='radio' name='contrat' value=$str[24] />
-                    Intérim
-=======
+
               <div class="form-group">
                  <label for="nom_post">Intitulé du poste :</label>
                   <input type="text" class="form-control" name="nom_post" value=""/>
@@ -110,7 +109,7 @@
                       Interim
                   </label>
                 </div>
->>>>>>> c0e39c531e4e2e940fb8172a41aaf6a97bc89c93
+
               </div>
 
 
@@ -135,10 +134,10 @@
                 <?php
                 echo "</select>
                 <br />
-<<<<<<< HEAD
+
                 <input type='submit' class='btn btn-secondary' name='ajouter' value='$str[27]'/>
                 <input type='text' class='form-control' name='nom_post' value='' required='required'/>
-=======
+
                   <div class="row">
                     <div class="form-group">
                       <div class='col-sm-11'>
@@ -151,7 +150,7 @@
                       </div>
                     </div>
                   </div>
->>>>>>> c0e39c531e4e2e940fb8172a41aaf6a97bc89c93
+
               </div>
 
               <!-- A FAIRE Afficher les compétences dans une textarea-->
@@ -160,7 +159,7 @@
 
               ?>
               <!-- Saisie le lieu-->
-<<<<<<< HEAD
+
               <div class='form-group'>
                 <label for='lieu'>$str[28] :</label>
                   <input type='text' class='form-control' name='lieu' required='required' value='' />
@@ -194,7 +193,7 @@
               <!-- Bouton-->
               <div>
                 <input type='submit' class='btn btn-primary' name='soumettre' value=$str[36]/>
-=======
+
               <div class="form-group">
                 <label for="lieu">Lieu :</label>
                   <input type="text" class="form-control" name="lieu" value="" />
@@ -243,7 +242,7 @@
               <!-- Bouton-->
               <div>
                 <input type="submit" class="btn btn-primary" name="creer_offre" value="Créer l'offre"/>
->>>>>>> c0e39c531e4e2e940fb8172a41aaf6a97bc89c93
+
               </div>
         </form>
       </div>";
