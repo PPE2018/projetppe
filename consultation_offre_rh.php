@@ -58,12 +58,17 @@
             <div classe='col-sm-4'>
               <?php
               include 'bdd/bdd.php';
+<<<<<<< HEAD
               $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
 
+=======
+              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
+>>>>>>> c0e39c531e4e2e940fb8172a41aaf6a97bc89c93
               $id = -1; //index impossible
               while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
                 $id_offre=$ligne['id_offre'];
                 $id_datelim=$ligne['date_limite'];
+<<<<<<< HEAD
                 $datetime = date("Y-m-d ");
 
                 if ($datetime< $id_datelim) {
@@ -110,8 +115,53 @@
                   // $supprimer="INSERT INTO offre_emplois(supprimer) VALUES 1 ";
                 }
 
+=======
+                $datetime = date("Y-m-d");
+                if ($datetime < $id_datelim) {
+                  if($id_offre!=$id){ // si id est différents de l'autre id
+                    if ($id!=-1) {
+
+                      // on affiche le bouton
+                      echo "</div>
+                            <div class='btn-group text-center'>
+                              <button href='#' type='button' class='btn btn-light'>Modifier</button>
+                              <button href='#' type='button' class='btn btn-dark'>Réception candidatures</button>
+                              <button type='button' class='btn btn-danger'>Supprimer</button>
+                            </div>
+
+                            </div>";
+                    }
+                    $libelle = $ligne['libelle_offre'];
+                    $desc=$ligne['description'];
+                    $lieu=$ligne['lieu'];
+                    $typecontr=$ligne['type_contrat'];
+                    $salaire= $ligne['salaire'];
+                    $datelim=$ligne['date_limite'];
+                    $video=$ligne['video'];
+                    $competence = $ligne['libelle'];
+
+                    echo "
+                            <div class='card bg-secondary text-white'>
+                              <div class='card-body'>
+                                $libelle<br/>
+                              </div>
+                              <div classe='card-body1'>
+                                <p>$desc
+                                <br/> Lieu : $lieu
+                                <br/> Type de contrat : $typecontr
+                                <br/> Salaire annuel en euros : $salaire
+                                <br/> Date limite : $datelim
+                                <br/> URL de la vidéo : $video;
+                                <br/> Compétences : <br/> - $competence";
+                  }
+                  else{
+                    $competence = $ligne['libelle'];
+                    echo "<br />- $competence";
+                }
+>>>>>>> c0e39c531e4e2e940fb8172a41aaf6a97bc89c93
                 $id=$id_offre;
               }
+            }
               echo "</div>
                     <div class='btn-group '>
                       <button  href='#' type='button' class='btn btn-light'>$str[15]</button>
