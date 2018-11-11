@@ -44,6 +44,8 @@ $str[34]="Vidéo";
 $str[35]="URL de la Vidéo";
 $str[36]="Créer l'offre";
 
+//création candidature
+
 
 
 
