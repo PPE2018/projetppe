@@ -77,35 +77,35 @@
                     CDD
                 <input type='radio' name='contrat' value=$str[24] />
 
-              <div class="form-group">
-                 <label for="nom_post">Intitulé du poste :</label>
-                  <input type="text" class="form-control" name="nom_post" value=""/>
+              <div class='form-group'>
+                 <label for='nom_post'>Intitulé du poste :</label>
+                  <input type='text' class='form-control' name='nom_post' value=''/>
               </div>
 
               <!-- Description du poste -->
-              <div class="form-group">
-                <label for="description">Description :</label>
-                <textarea name="description" class="form-control" rows=4 cols=40></textarea>
+              <div class='form-group'>
+                <label for='description'>Description :</label>
+                <textarea name='description' class='form-control' rows=4 cols=40></textarea>
               </div>
 
               <!-- Saisie du type post-->
-              <div class="form-group">
-                <label for="description">Type de l'offre :</label><br />
-                <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="contrat" value="CDI" checked id="CDI">
-                  <label class="form-check-label" for="CDI">
+              <div class='form-group'>
+                <label for='description'>Type de l'offre :</label><br />
+                <div class='form-check form-check-inline'>
+                <input class='form-check-input' type='radio' name='contrat' value='CDI' checked id='CDI'>
+                  <label class='form-check-label' for='CDI'>
                       CDI
                   </label>
                 </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="contrat" value="CDD" id="CDD">
-                  <label class="form-check-label" for="CDD">
+                <div class='form-check form-check-inline'>
+                  <input class='form-check-input' type='radio' name='contrat' value='CDD' id='CDD'>
+                  <label class='form-check-label' for='CDD'>
                       CDD
                   </label>
                 </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="contrat" value="Interim" id="Interim">
-                  <label class="form-check-label" for="Interim">
+                <div class='form-check form-check-inline'>
+                  <input class='form-check-input' type='radio' name='contrat' value='Interim' id='Interim'>
+                  <label class='form-check-label' for='Interim'>
                       Interim
                   </label>
                 </div>
@@ -138,15 +138,15 @@
                 <input type='submit' class='btn btn-secondary' name='ajouter' value='$str[27]'/>
                 <input type='text' class='form-control' name='nom_post' value='' required='required'/>
 
-                  <div class="row">
-                    <div class="form-group">
+                  <div class='row'>
+                    <div class='form-group'>
                       <div class='col-sm-11'>
-                        <input type="text" class="form-control" name="libelle" value=""/>
+                        <input type='text' class='form-control' name='libelle' value=''/>
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class='form-group'>
                       <div class='col-sm-0'>
-                        <input type="submit" class="btn btn-secondary" name="ajoutCompetence" value="Ajouter"/>
+                        <input type='submit' class='btn btn-secondary' name='ajoutCompetence' value='Ajouter'/>
                       </div>
                     </div>
                   </div>
@@ -194,54 +194,54 @@
               <div>
                 <input type='submit' class='btn btn-primary' name='soumettre' value=$str[36]/>
 
-              <div class="form-group">
-                <label for="lieu">Lieu :</label>
-                  <input type="text" class="form-control" name="lieu" value="" />
+              <div class='form-group'>
+                <label for='lieu'>Lieu :</label>
+                  <input type='text' class='form-control' name='lieu' value='' />
               </div>
 
               <!-- Saisie du salaire-->
-              <div class="form-group">
-                <label for="salaire">Salaire annuel :</label>
-                  <input type="number" class="form-control" name="salaire" value="" max="500000" />
+              <div class='form-group'>
+                <label for='salaire'>Salaire annuel :</label>
+                  <input type='number' class='form-control' name='salaire' value='' max='500000' />
               </div>
 
               <!-- Saisie de la date limite de dépots-->
-              <div class="form-group">
-                <label for="date">Date limite de dépots :</label>
-                <input type="date" class="form-control" name="date_depots">
+              <div class='form-group'>
+                <label for='date'>Date limite de dépots :</label>
+                <input type='date' class='form-control' name='date_depots'>
               </div>
 
               <!-- Saisie documents a fournir (cases à cocher)-->
-              <div class="form-group">
-                <label for="documents">Documents à fournir :</label><br />
-                <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="doc_cv" value="doc_cv" checked id="doc_cv">
-                  <label class="form-check-label" for="doc_cv">
+              <div class='form-group'>
+                <label for='documents'>Documents à fournir :</label><br />
+                <div class='form-check form-check-inline'>
+                <input class='form-check-input' type='checkbox' name='doc_cv' value='doc_cv' checked id='doc_cv'>
+                  <label class='form-check-label' for='doc_cv'>
                       CV
                   </label>
                 </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="doc_lm" value="doc_lm" id="doc_lm">
-                  <label class="form-check-label" for="doc_lm">
+                <div class='form-check form-check-inline'>
+                  <input class='form-check-input' type='checkbox' name='doc_lm' value='doc_lm' id='doc_lm'>
+                  <label class='form-check-label' for='doc_lm'>
                       Lettre motivation
                   </label>
                 </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" name="doc_video" value="doc_video" id="doc_video">
-                  <label class="form-check-label" for="doc_video">
+                <div class='form-check form-check-inline'>
+                  <input class='form-check-input' type='checkbox' name='doc_video' value='doc_video' id='doc_video'>
+                  <label class='form-check-label' for='doc_video'>
                       Vidéo
                   </label>
                 </div>
               </div>
 
               <!-- Saisie vidéo en url-->
-              <div class="form-group">
-                <label for="url">URL de la Vidéo :</label>
-                <input type="url" class="form-control" name="url" value="" />
+              <div class='form-group'>
+                <label for='url'>URL de la Vidéo :</label>
+                <input type='url' class='form-control' name='url' value='' />
               </div>
               <!-- Bouton-->
               <div>
-                <input type="submit" class="btn btn-primary" name="creer_offre" value="Créer l'offre"/>
+                <input type='submit' class='btn btn-primary' name='creer_offre' value='Créer l'offre'/>
 
               </div>
         </form>

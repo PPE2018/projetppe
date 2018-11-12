@@ -48,20 +48,68 @@
       </nav>";
 
       ?>
-<!-- TODOO afficher l'identité de la personne nom, prenom / afficher en fonction de l'offre les élémemnts à envoyer /mettre dans la base de données  -->
+<!-- TODOo afficher en fonction de l'offre les élémemnts à envoyer /mettre dans la base de données  -->
 
 
     <form action="creation_candidature.php" method="post">
-    <h1> Création candidature : </h1>
+    <h1> Postulation à une offre : </h1>
 
     <?php
-    include 'bdd/bdd.php'
-    //pas sur du tt je veux associer le candidat à sa fiche candidature en fonction de l'offre (bouton postuler)
-    $resultat= mysqli_query($connexion, "SELECT C.id_personne, nom, prenom FROM candidat C INNER JOIN candidature CA on CA.id_personne=C.id_personne INNER JOIN offre_emplois O on O.id_offre=CA.id_offre WHERE CA.id_offre=CA.id_candidature;")
 
+    include 'bdd/bdd.php';
+    $id = -1;
+    $_GET["id_offre"]=1;
+    if (isset ($_GET["id_offre"])){
+      $id_offre=$_GET["id_offre"];
+      $resul=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE offre_emplois.id_offre=$id_offre;");
+
+      while ($ligne=mysqli_fetch_array($resul,MYSQLI_BOTH)){
+        if($id_offre!=$id){
+          if($id!=-1){
+
+          }
+        $libelle = $ligne['libelle_offre'];
+        $desc=$ligne['description'];
+        $lieu=$ligne['lieu'];
+        $typecontr=$ligne['type_contrat'];
+        $salaire= $ligne['salaire'];
+        $datelim=$ligne['date_limite'];
+        $video=$ligne['video'];
+        $competence = $ligne['libelle'];
+        echo "
+                  $libelle<br/>
+                  $desc
+                    <br/> $str[9] : $lieu
+                    <br/> $str[10] : $typecontr
+                    <br/> $str[11] : $salaire
+                    <br/> $str[12] : $datelim
+                    <br/> $str[13] : $video;
+                    <br/> $str[14] : <br/> - $competence";
+      }
+      else{
+        $competence = $ligne['libelle'];
+        echo "<br />- $competence";
+    }
+    $id=$id_offre;
+  }
+}
+
+
+    $_SESSION["Candidat"]=1;
+    if(isset($_SESSION["Candidat"])){
+      $id_personne = $_SESSION["Candidat"];
+      include 'bdd/bdd.php';
+
+      $resultat= mysqli_query($connexion, "SELECT nom, prenom FROM candidat C WHERE id_personne=$id_personne ;");
+      while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
+        $nom=$ligne['nom'];
+        $prenom=$ligne['prenom'];
+
+        echo "Nom : $nom<br/> Prénom : " .$prenom ;
+
+      }
+    }
      ?>
-
-
 
       <div id="conteneur01">
 
@@ -95,12 +143,12 @@
         <input type="file" name="mon_fichier" id="mon_fichier" /><br />
 
       </div>
+
       <div>
         <input type="submit" name="soumettre" value="Ajouter/Valider"/>
       </div>
 
     </div>
   </form>
-
-
-    </body>
+</body>
+</html>
