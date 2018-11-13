@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="style/consultation_offre_rh.css" rel="stylesheet">
+        <link href="style/style.css" rel="stylesheet">
     </head>
     <body>
       <?php
@@ -59,8 +59,6 @@
               include 'bdd/bdd.php';
 
               //$resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
-
-
               $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
 
               $id = -1; //index impossible
@@ -75,9 +73,9 @@
                       // on affiche le bouton
                       echo "</div>
                             <div class='btn-group text-center'>
-                              <button href='#' type='button' class='btn btn-light'>$str[15]</button>
-                              <button href='#' type='button' class='btn btn-dark'>$str[16]</button>
-                              <button type='button' class='btn btn-danger'>$str[17]</button>
+                            <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>
+                            <a href='#?id=$id' id='$id' class='modifier'>$str[15]</a>
+                            <a href='crud/supprimer.php?id=$id' id='$id' class='supprimer'>$str[17]</a>
                             </div>
 
                             </div>";
@@ -102,7 +100,7 @@
                                 <br/> $str[10] : $typecontr
                                 <br/> $str[11] : $salaire
                                 <br/> $str[12] : $datelim
-                                <br/> $str[13] : $video;
+                                <br/> $str[13] : $video
                                 <br/> $str[14] : <br/> - $competence";
                   }
                   else{
@@ -110,21 +108,21 @@
                     echo "<br />- $competence";
 
                   }
-
-                }
                 $id=$id_offre;
-
+              }
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 138624dd4ad8c3f3231f6466c9c36567ea0b3e68
               echo "</div>
                     <div class='btn-group text-center'>
-                      <button  href='#' type='button' class='btn btn-dark'>$str[15]</button>
-                      <button  href='#' type='button' class='btn btn-light'>$str[16]</button>
-                      <a href='supprimer.php?id=$id' id='$id'>$str[17]</a>
+                    <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>
+                    <a href='#?id=$id' id='$id' class='modifier'>$str[15]</a>
+                    <a href='crud/supprimer.php?id=$id' id='$id' class='supprimer'>$str[17]</a>
                     </div>
                     </div>";
               ?>
-
             </div>
             <div class='col-sm-4'>
             </div>
