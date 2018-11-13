@@ -59,10 +59,10 @@
               <?php
               include 'bdd/bdd.php';
 
-              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
+              //$resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
 
 
-              //$resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
+              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
 
               $id = -1; //index impossible
               while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
@@ -117,7 +117,7 @@
 
                 $id=$id_offre;
               }
-            
+
               echo "</div>
                     <div class='btn-group '>
                       <button  href='#' type='button' class='btn btn-light'>$str[15]</button>
