@@ -115,7 +115,7 @@
                 $id=$id_offre;
 
             }
->>>>>>> 4cc6cf8e9944f1f0343b5919acee217572c33938
+
               echo "</div>
                     <div class='btn-group text-center'>
                       <button  href='#' type='button' class='btn btn-dark'>$str[15]</button>

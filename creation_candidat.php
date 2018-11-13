@@ -26,7 +26,7 @@
         <div class='collapse navbar-collapse' id='navbarsExample05'>
           <ul class='navbar-nav mr-auto'>
             <li class='nav-item'>
-              <a class='nav-link' href='consultation_offre_rh.php?langue=fr'>$str[2]</a>
+              <a class='nav-link' href='consultation_offre_rh.php?langue=$langue'>$str[2]</a>
             </li>
             <li class='nav-item active'>
               <a class='nav-link' href='#'> Consulter des différentes candidatures</a>
@@ -52,22 +52,31 @@
 
 
     <form action="creation_candidature.php" method="post">
-    <h1> Postulation à une offre : </h1>
+    <h1> Postuler à une offre : </h1>
 
     <?php
+
+
 
     include 'bdd/bdd.php';
     $id = -1;
     $_GET["id_offre"]=1;
     if (isset ($_GET["id_offre"])){
+
       $id_offre=$_GET["id_offre"];
       $resul=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE offre_emplois.id_offre=$id_offre;");
+      $re= mysqli_query($connexion, "SELECT docs.libelle FROM docs INNER JOIN necessite N ON docs.id=N.id INNER JOIN offre_emplois O ON O.id_offre= N.id_offre WHERE O.id_offre= $id_offre; ");
+
+
+
+
 
       while ($ligne=mysqli_fetch_array($resul,MYSQLI_BOTH)){
         if($id_offre!=$id){
           if($id!=-1){
 
           }
+
         $libelle = $ligne['libelle_offre'];
         $desc=$ligne['description'];
         $lieu=$ligne['lieu'];
@@ -76,6 +85,7 @@
         $datelim=$ligne['date_limite'];
         $video=$ligne['video'];
         $competence = $ligne['libelle'];
+
         echo "
                   $libelle<br/>
                   $desc
