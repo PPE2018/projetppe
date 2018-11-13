@@ -96,7 +96,10 @@
                   ?>
                 </select>
                 <br />
+<<<<<<< HEAD
                 <label for="libelle">Ajouter une Compétences :</label>
+=======
+>>>>>>> 8033c179b38f7a1f67431ceaba216662d666ce6b
                   <div class="row">
                     <div class="form-group">
                       <div class='col-sm-11'>
@@ -125,7 +128,11 @@
               <!-- Saisie du salaire-->
               <div class="form-group">
                 <label for="salaire">Salaire annuel :</label>
+<<<<<<< HEAD
                   <input type="number" class="form-control" name="salaire" value="" min="0" />
+=======
+                  <input type="number" class="form-control" name="salaire" value="" max="500000" />
+>>>>>>> 8033c179b38f7a1f67431ceaba216662d666ce6b
               </div>
 
               <!-- Saisie de la date limite de dépots-->
@@ -138,7 +145,11 @@
               <div class="form-group">
                 <label for="documents">Documents à fournir :</label><br />
                 <div class="form-check form-check-inline">
+<<<<<<< HEAD
                 <input class="form-check-input" type="checkbox" name="doc_cv" value="doc_cv" id="doc_cv">
+=======
+                <input class="form-check-input" type="checkbox" name="doc_cv" value="doc_cv" checked id="doc_cv">
+>>>>>>> 8033c179b38f7a1f67431ceaba216662d666ce6b
                   <label class="form-check-label" for="doc_cv">
                       CV
                   </label>

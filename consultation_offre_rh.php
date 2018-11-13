@@ -59,10 +59,16 @@
               <?php
               include 'bdd/bdd.php';
               $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY date_limite DESC'); /*permet d'afficher les données*/
+<<<<<<< HEAD
+=======
+              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
+              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
+>>>>>>> 8033c179b38f7a1f67431ceaba216662d666ce6b
               $id = -1; //index impossible
               while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
                 $id_offre=$ligne['id_offre'];
                 $id_datelim=$ligne['date_limite'];
+
                 $datetime = date("Y-m-d ");
                 if ($datetime< $id_datelim) {
                   if($id_offre!=$id){ // si id est différents de l'autre id
@@ -75,6 +81,20 @@
                               <button type='button' class='btn btn-danger'>$str[17]</button>
                             </div>
 
+<<<<<<< HEAD
+=======
+                if ($datetime< $id_datelim) {
+                  if($id_offre!=$id){ // si id est différents de l'autre id
+                    if ($id!=-1) {
+                      // on affiche le bouton
+                      echo "</div>
+                            <div class='btn-group text-center'>
+                              <button href='#' type='button' class='btn btn-light'>$str[15]</button>
+                              <button href='#' type='button' class='btn btn-dark'>$str[16]</button>
+                              <button type='button' class='btn btn-danger'>$str[17]</button>
+                            </div>
+
+>>>>>>> 8033c179b38f7a1f67431ceaba216662d666ce6b
                             </div>";
                     }
                     $libelle = $ligne['libelle_offre'];
