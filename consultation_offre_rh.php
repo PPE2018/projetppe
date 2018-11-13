@@ -48,7 +48,7 @@
             <div classe='col-sm-4'>
               <?php
               include 'bdd/bdd.php';
-              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
+              $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY date_limite DESC'); /*permet d'afficher les données*/
               $id = -1; //index impossible
               while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
                 $id_offre=$ligne['id_offre'];
@@ -61,9 +61,9 @@
                       // on affiche le bouton
                       echo "</div>
                             <div class='btn-group text-center'>
-                              <button href='#' type='button' class='btn btn-light'>Modifier</button>
                               <button href='#' type='button' class='btn btn-dark'>Réception candidatures</button>
-                              <button type='button' class='btn btn-danger'>Supprimer</button>
+                              <button href='#' type='button' class='btn btn-light'>Modifier</button>
+                              <a href='supprimer.php?id=$id' id='$id' onclick='return(confirm('Etes-vous sûr de vouloir supprimer cette facture ?'));'>SUPPRIMER</a>
                             </div>
 
                             </div>";
@@ -88,7 +88,7 @@
                                 <br/> Type de contrat : $typecontr
                                 <br/> Salaire annuel en euros : $salaire
                                 <br/> Date limite : $datelim
-                                <br/> URL de la vidéo : $video;
+                                <br/> URL de la vidéo : $video
                                 <br/> Compétences : <br/> - $competence";
                   }
                   else{
@@ -99,10 +99,10 @@
               }
             }
               echo "</div>
-                    <div class='btn-group '>
-                      <button  href='#' type='button' class='btn btn-light'>Modifier</button>
+                    <div class='btn-group text-center'>
                       <button  href='#' type='button' class='btn btn-dark'>Réception candidatures</button>
-                      <button type='button' class='btn btn-danger'>Supprimer</button>
+                      <button  href='#' type='button' class='btn btn-light'>Modifier</button>
+                      <a href='supprimer.php?id=$id' id='$id'>SUPPRIMER</a>
                     </div>
                     </div>";
 
