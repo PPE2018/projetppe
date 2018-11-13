@@ -105,11 +105,20 @@
                     echo "<br />- $competence";
 
                   }
+<<<<<<< HEAD
 
                 }
                 $id=$id_offre;
-              
+
             }
+=======
+                  // $supprimer="INSERT INTO offre_emplois(supprimer) VALUES 1 ";
+                }
+
+                $id=$id_offre;
+              }
+
+>>>>>>> 0465f954227e04d397b91786fa18c29e42c91ed2
               echo "</div>
                     <div class='btn-group text-center'>
                       <button  href='#' type='button' class='btn btn-dark'>$str[15]</button>
