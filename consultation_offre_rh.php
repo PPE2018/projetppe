@@ -111,10 +111,6 @@
                 $id=$id_offre;
               }
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> 138624dd4ad8c3f3231f6466c9c36567ea0b3e68
               echo "</div>
                     <div class='btn-group text-center'>
                     <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>
