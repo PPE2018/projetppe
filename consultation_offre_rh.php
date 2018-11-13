@@ -50,7 +50,6 @@
           </div>
         </nav>";
         ?>
-
         <div class="container-fluid">
           <div class="row content">
             <div class='col-sm-4'>
@@ -70,7 +69,6 @@
                 $id_datelim=$ligne['date_limite'];
 
                 $datetime = date("Y-m-d ");
-
                 if ($datetime< $id_datelim) {
                   if($id_offre!=$id){ // si id est différents de l'autre id
                     if ($id!=-1) {
@@ -112,20 +110,19 @@
                     echo "<br />- $competence";
 
                   }
-                  // $supprimer="INSERT INTO offre_emplois(supprimer) VALUES 1 ";
+
                 }
-
                 $id=$id_offre;
-              }
 
+            }
+>>>>>>> 4cc6cf8e9944f1f0343b5919acee217572c33938
               echo "</div>
-                    <div class='btn-group '>
-                      <button  href='#' type='button' class='btn btn-light'>$str[15]</button>
-                      <button  href='#' type='button' class='btn btn-dark'>$str[16]</button>
-                      <button type='button' class='btn btn-danger'>$str[17]</button>
+                    <div class='btn-group text-center'>
+                      <button  href='#' type='button' class='btn btn-dark'>$str[15]</button>
+                      <button  href='#' type='button' class='btn btn-light'>$str[16]</button>
+                      <a href='supprimer.php?id=$id' id='$id'>$str[17]</a>
                     </div>
                     </div>";
-
               ?>
 
             </div>
