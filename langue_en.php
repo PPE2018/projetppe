@@ -3,7 +3,7 @@
 //menu
 $str[1]="Home";
 $str[2]="Consult offers";
-$str[3]="Créat offers";
+$str[3]="Creat offers";
 $str[4]="See candidates";
 $str[5]="Languages";
 $str[6]="French";
