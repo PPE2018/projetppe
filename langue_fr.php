@@ -33,7 +33,8 @@ $str[23]="CDD";
 $str[24]="Intérim";
 $str[25]="Compétences";
 $str[26]=" Appuyer sur le bouton ctrl (sur Windows) ou Command (Mac) pour sélectionner plusieurs compétences";
-$str[27]="Ajouter";
+$str[27]="Ajouter une compétence";
+$str[37]="Ajouter";
 $str[28]="Lieu";
 $str[29]="Salaire annuel";
 $str[30]="Date limite de dépots";
@@ -43,6 +44,7 @@ $str[33]="Lettre motivation";
 $str[34]="Vidéo";
 $str[35]="URL de la Vidéo";
 $str[36]="Créer l'offre";
+
 
 //création candidature
 
