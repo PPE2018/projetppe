@@ -103,7 +103,11 @@
 
           $erreur = false;
           if(!$resultat)
-              $erreur = true;
+
+          $erreur = true;
+          if (isset($_GET['langue']))
+            $langue = $_GET['langue'];
+          include "../langue_".$langue.".php";
 
           //Message de réussite
           if($erreur){
@@ -113,7 +117,7 @@
           else{
               echo 'L\'offre d\'emploi a bien été crée !<br />';
           }
-          echo '<br /><a href="../creation_offre.php">Retour</a>';
+          echo '<br /><a href="../creation_offre.php?langue='.$langue.'">Retour</a>';
 
         }
         if(isset($_POST['ajoutCompetence'])){
@@ -134,7 +138,6 @@
           else{
               echo 'La compétence à bien été ajouter<br />';
           }
-          echo '<a href="../creation_offre.php">Retour</a>';
         }
     ?>
 </body>
