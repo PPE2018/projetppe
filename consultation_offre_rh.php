@@ -26,10 +26,10 @@
           <div class='collapse navbar-collapse' id='navbarsExample05'>
             <ul class='navbar-nav mr-auto'>
               <li class='nav-item active'>
-                <a class='nav-link' href='consultation_offre_rh.php?langue=fr'>$str[2]</a>
+                <a class='nav-link' href='consultation_offre_rh.php?langue=$langue'>$str[2]</a>
               </li>
               <li class='nav-item '>
-                <a class='nav-link' href='creation_offre.php?langue=fr'>$str[3]</a>
+                <a class='nav-link' href='creation_offre.php?langue=$langue'>$str[3]</a>
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='#'>$str[4]</a>
@@ -111,7 +111,6 @@
                 $id=$id_offre;
               }
             }
-
               echo "</div>
                     <div class='btn-group text-center'>
                     <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>
