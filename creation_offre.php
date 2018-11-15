@@ -109,6 +109,7 @@
                   <?php
                   }
                   ?>
+
                 <?php
                 echo "
                 </select>
@@ -159,7 +160,7 @@
                 <div class='form-check form-check-inline'>
                 <input class='form-check-input' type='checkbox' name='doc_cv' value='doc_cv' id='doc_cv'>
                   <label class='form-check-label' for='doc_cv'>
-                      php echo $str[32]
+                       $str[32]
                   </label>
                 </div>
                 <div class='form-check form-check-inline'>
@@ -183,7 +184,7 @@
               </div>
               <!-- Bouton-->
               <div>
-                <input type='submit' class='btn btn-primary' name='creer_offre' value='$str[36] '/>
+                <input type='submit' class=' btn btn-primary' name='creer_offre' value=$str[36] />
               </div>
         </form>
       </div>";

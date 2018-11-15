@@ -105,6 +105,7 @@
           if(!$resultat)
 
           $erreur = true;
+          $langue= 'fr';
           if (isset($_GET['langue']))
             $langue = $_GET['langue'];
           include "../langue_".$langue.".php";
@@ -117,7 +118,7 @@
           else{
               echo 'L\'offre d\'emploi a bien été crée !<br />';
           }
-          echo '<br /><a href="../creation_offre.php?langue='.$langue.'">Retour</a>';
+          echo "<br /><a href='../creation_offre.php?langue=$langue'>Retour</a>";
 
         }
         if(isset($_POST['ajoutCompetence'])){
