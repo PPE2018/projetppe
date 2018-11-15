@@ -32,7 +32,7 @@
                 <a class='nav-link' href='creation_offre.php?langue=$langue'>$str[3]</a>
               </li>
               <li class='nav-item'>
-                <a class='nav-link' href='#'>$str[4]</a>
+                <a class='nav-link' href='reception_cand_rh.php?langue=$langue'>$str[4]</a>
               </li>
             </ul>
             <ul class='navbar-nav ml-auto'>
@@ -86,6 +86,7 @@
                     $typecontr=$ligne['type_contrat'];
                     $salaire= $ligne['salaire'];
                     $datelim=$ligne['date_limite'];
+                    $datelim=date("d/m/Y");
                     $video=$ligne['video'];
                     $competence = $ligne['libelle'];
 

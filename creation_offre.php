@@ -25,14 +25,14 @@
 
           <div class='collapse navbar-collapse' id='navbarsExample05'>
             <ul class='navbar-nav mr-auto'>
-              <li class='nav-item active'>
+              <li class='nav-item'>
                 <a class='nav-link' href='consultation_offre_rh.php?langue=$langue'>$str[2]</a>
               </li>
-              <li class='nav-item '>
+              <li class='nav-item active'>
                 <a class='nav-link' href='creation_offre.php?langue=$langue'>$str[3]</a>
               </li>
               <li class='nav-item'>
-                <a class='nav-link' href='#'>$str[4]</a>
+                <a class='nav-link' href='reception_cand_rh.php?langue=$langue'>$str[4]</a>
               </li>
             </ul>
             <ul class='navbar-nav ml-auto'>
@@ -159,7 +159,7 @@
                 <div class='form-check form-check-inline'>
                 <input class='form-check-input' type='checkbox' name='doc_cv' value='doc_cv' id='doc_cv'>
                   <label class='form-check-label' for='doc_cv'>
-                      php echo $str[32]
+                    $str[32]
                   </label>
                 </div>
                 <div class='form-check form-check-inline'>
