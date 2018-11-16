@@ -45,5 +45,13 @@ $str[34]="Video";
 $str[35]="URL's video";
 $str[36]="Create of the offer";
 
-
+//Reception candidatures
+$str[37]="ID";
+$str[38]="Date";
+$str[39]="Description";
+$str[40]="Name";
+$str[41]="First name";
+$str[42]="Receipt";
+$str[43]="I saw";
+$str[44]="Already seen";
  ?>

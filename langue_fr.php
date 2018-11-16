@@ -46,8 +46,17 @@ $str[34]="Vidéo";
 $str[35]="URL de la Vidéo";
 $str[36]="Créer l'offre";
 
+//Reception candidatures
+$str[37]="ID";
+$str[38]="Date";
+$str[39]="Libellé";
+$str[40]="Nom";
+$str[41]="Prénom";
+$str[42]="Réception";
+$str[43]="J'ai vu";
+$str[44]="Déjà vu";
 
-//création candidature
+
 
 
 
