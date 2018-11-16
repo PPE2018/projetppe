@@ -124,7 +124,8 @@
                 $id=$id_offre;
               }
             }
-              echo  " </p>
+              echo  " </div>
+                      </p>
                       <div class='card-footer'>
                       <p class='text-center'>
                         <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>

@@ -13,14 +13,14 @@ $str[8]="Account";
 //box
 $str[9]="Place";
 $str[10]="Types of contract";
-$str[11]="Annual salary in euros";
+$str[11]="Annual salary (euros)";
 $str[12]="Dateline";
 $str[13]="URL's video";
 $str[14]="Qualification";
 
 //boutons
 $str[15]="Edit";
-$str[16]="See candidates";
+$str[16]="Candidates";
 $str[17]="Delete";
 
 //création des offres d'emplois
