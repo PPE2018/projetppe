@@ -5,6 +5,7 @@ $str[1]="Accueil";
 $str[2]="Consulter des offres";
 $str[3]="Créer des offres";
 $str[4]="Voir des candidatures";
+$str[44]="Voir le profil";
 $str[5]="Langue";
 $str[6]="Français";
 $str[7]="Anglais";

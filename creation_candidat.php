@@ -29,7 +29,7 @@
               <a class='nav-link' href='consultation_offre_rh.php?langue=$langue'>$str[2]</a>
             </li>
             <li class='nav-item active'>
-              <a class='nav-link' href='#'> Consulter des différentes candidatures</a>
+              <a class='nav-link' href='consulter_profil_candidat.php?langue=$langue'>$str[44]</a>
             </li>
           </ul>
           <ul class='navbar-nav ml-auto'>
@@ -48,15 +48,28 @@
       </nav>";
 
       ?>
-<!-- TODOo afficher en fonction de l'offre les élémemnts à envoyer /mettre dans la base de données  -->
-
 
     <form action="creation_candidature.php" method="post">
-    <h1> Postuler à une offre : </h1>
+      <h1> Postuler à une offre : </h1>
+        <div id='conteneur01'>
 
     <?php
 
+    //afficher le nom du candidat
+    $_SESSION["Candidat"]=1;
+    if(isset($_SESSION["Candidat"])){
+      $id_personne = $_SESSION["Candidat"];
+      include 'bdd/bdd.php';
 
+      $resultat= mysqli_query($connexion, "SELECT nom, prenom FROM candidat C WHERE id_personne=$id_personne ;");
+      while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
+        $nom=$ligne['nom'];
+        $prenom=$ligne['prenom'];
+
+        echo $nom."<br/>" .$prenom."<br/>" ;
+
+      }
+    }
 
     include 'bdd/bdd.php';
     $id = -1;
@@ -64,12 +77,8 @@
     if (isset ($_GET["id_offre"])){
 
       $id_offre=$_GET["id_offre"];
+      // affiche l'offre
       $resul=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE offre_emplois.id_offre=$id_offre;");
-      $re= mysqli_query($connexion, "SELECT docs.libelle FROM docs INNER JOIN necessite N ON docs.id=N.id INNER JOIN offre_emplois O ON O.id_offre= N.id_offre WHERE O.id_offre= $id_offre; ");
-
-
-
-
 
       while ($ligne=mysqli_fetch_array($resul,MYSQLI_BOTH)){
         if($id_offre!=$id){
@@ -84,7 +93,7 @@
         $salaire= $ligne['salaire'];
         $datelim=$ligne['date_limite'];
         $video=$ligne['video'];
-        $competence = $ligne['libelle'];
+        $competence =$ligne['libelle'];
 
         echo "
                   $libelle<br/>
@@ -93,7 +102,7 @@
                     <br/> $str[10] : $typecontr
                     <br/> $str[11] : $salaire
                     <br/> $str[12] : $datelim
-                    <br/> $str[13] : $video;
+                    <br/> $str[13] : $video
                     <br/> $str[14] : <br/> - $competence";
       }
       else{
@@ -102,62 +111,28 @@
     }
     $id=$id_offre;
   }
-}
 
+    //récupère cv video et lm en fonction de l'offre
+    $re= mysqli_query($connexion, "SELECT docs.libelle, docs.id FROM docs INNER JOIN necessite N ON docs.id=N.id INNER JOIN offre_emplois O ON O.id_offre= N.id_offre WHERE O.id_offre= $id_offre;");
 
-    $_SESSION["Candidat"]=1;
-    if(isset($_SESSION["Candidat"])){
-      $id_personne = $_SESSION["Candidat"];
-      include 'bdd/bdd.php';
+    while ($ligne=mysqli_fetch_array($re,MYSQLI_BOTH)){
+      $ids=$ligne['id'];
+      $libel=$ligne['libelle'];
 
-      $resultat= mysqli_query($connexion, "SELECT nom, prenom FROM candidat C WHERE id_personne=$id_personne ;");
-      while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
-        $nom=$ligne['nom'];
-        $prenom=$ligne['prenom'];
+      echo "<div>
+            <h3>$libel :</h3>
 
-        echo "Nom : $nom<br/> Prénom : " .$prenom ;
+            <input type='hidden' name='MAX_FILE_SIZE' value='1048576' />
+            <input type='file' name='$ids' /><br />
 
+          </div>";
       }
-    }
+}
      ?>
-
-      <div id="conteneur01">
-
-      <!-- Saisie le cv-->
-
-      <div>
-        <h3>CV :</h3>
-        <label for="mon_fichier">Insérer le CV (tous formats | max. 1 Mo) :</label><br />
-        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-        <input type="file" name="mon_fichier" id="mon_fichier" /><br />
-      </div>
-
-
-      <!-- Saisie le lm-->
-
-      <div>
-        <h3>Lettre de motivation :</h3>
-
-          <!-- Ajouter la lettre de motivation -->
-          <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-          <input type="file" name="mon_fichier" id="mon_fichier" /><br />
-
-      </div>
-
-      <!-- Saisie le video-->
-
-      <div>
-        <h3>La vidéo :</h3>
-        <!-- Ajouter une vidéo -->
-        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-        <input type="file" name="mon_fichier" id="mon_fichier" /><br />
-
-      </div>
 
       <div>
         <input type="submit" name="soumettre" value="Ajouter/Valider"/>
       </div>
-
     </div>
   </form>
 </body>
