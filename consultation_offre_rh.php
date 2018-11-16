@@ -50,18 +50,17 @@
           </div>
         </nav>";
         ?>
-        <div class="container-fluid">
-          <div class="row content">
-            <div class='col-sm-4'>
-            </div>
-            <div classe='col-sm-4'>
               <?php
               include 'bdd/bdd.php';
-
               //$resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
               $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
+              echo "
+              <div class='container'>
+              <div class='row'>
+              ";
 
               $id = -1; //index impossible
+              $i= 0;
               while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
                 $id_offre=$ligne['id_offre'];
                 $id_datelim=$ligne['date_limite'];
@@ -72,13 +71,18 @@
                     if ($id!=-1) {
                       // on affiche le bouton
                       echo "</div>
-                            <div class='btn-group text-center'>
-                            <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>
-                            <a href='#?id=$id' id='$id' class='modifier'>$str[15]</a>
-                            <a href='crud/supprimer.php?id=$id' id='$id' class='supprimer'>$str[17]</a>
+                            </p>
+                            <div class='card-footer'>
+                              <p class='text-center'>
+                                <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>
+                                <a href='#?id=$id' id='$id' class='modifier'>$str[15]</a>
+                                <a href='crud/supprimer.php?id=$id' id='$id' class='supprimer'>$str[17]</a>
+                              </p>
                             </div>
-
-                            </div>";
+                          </div>
+                        </div>
+                      </div>
+                            ";
                     }
                     $libelle = $ligne['libelle_offre'];
                     $desc=$ligne['description'];
@@ -91,18 +95,26 @@
                     $competence = $ligne['libelle'];
 
                     echo "
-                            <div class='card bg-secondary text-white'>
-                              <div class='card-body'>
-                                $libelle<br/>
-                              </div>
-                              <div classe='card-body1'>
-                                <p>$desc
-                                <br/> $str[9] : $lieu
-                                <br/> $str[10] : $typecontr
-                                <br/> $str[11] : $salaire
-                                <br/> $str[12] : $datelim
-                                <br/> $str[13] : $video
-                                <br/> $str[14] : <br/> - $competence";
+                            <div class='col-lg-12'>
+                              <div class='boite'>
+                                <div class='card'>
+                                <div class='card-header' style='text-align: center;'>
+                                  <h5 class='card-title'><b>$libelle</b></h5>
+                                </div>
+                                  <div class='card-body'>
+                                    <p class='card-text'>
+                                      <p>$desc</p>
+
+                                      <b>$str[9] :</b> $lieu
+                                      <br/> <b>$str[10] :</b> $typecontr
+                                      <br/> <b>$str[11] :</b> $salaire
+                                      <br/> <b>$str[12] :</b> $datelim
+                                      <br /><a href='$video'><b>$str[13]</b></a>
+                                      <br/> <b>$str[14] :</b> <br/> - $competence
+
+
+                                ";
+
                   }
                   else{
                     $competence = $ligne['libelle'];
@@ -112,20 +124,19 @@
                 $id=$id_offre;
               }
             }
-              echo "</div>
-                    <div class='btn-group text-center'>
-                    <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>
-                    <a href='#?id=$id' id='$id' class='modifier'>$str[15]</a>
-                    <a href='crud/supprimer.php?id=$id' id='$id' class='supprimer'>$str[17]</a>
+              echo  " </p>
+                      <div class='card-footer'>
+                      <p class='text-center'>
+                        <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>
+                        <a href='#?id=$id' id='$id' class='modifier'>$str[15]</a>
+                        <a href='crud/supprimer.php?id=$id' id='$id' class='supprimer'>$str[17]</a>
+                      </p>
                     </div>
-                    </div>";
+                  </div>
+                </div>
+              </div>
+                    ";
               ?>
-            </div>
-            <div class='col-sm-4'>
-            </div>
-           </div>
-         </div>
-
     </body>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
