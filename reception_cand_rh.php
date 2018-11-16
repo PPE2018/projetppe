@@ -55,12 +55,12 @@
         <table class="table table-striped">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Date</th>
-              <th scope="col">Libellé</th>
-              <th scope="col">Nom</th>
-              <th scope="col">Prénom</th>
-              <th scope="col">Réception</th>
+              <th scope="col"><?php echo $str[37] ?></th>
+              <th scope="col"><?php echo $str[38] ?></th>
+              <th scope="col"><?php echo $str[39] ?></th>
+              <th scope="col"><?php echo $str[40] ?></th>
+              <th scope="col"><?php echo $str[41] ?></th>
+              <th scope="col"><?php echo $str[42] ?></th>
             </tr>
           </thead>
           <tbody>
@@ -76,10 +76,10 @@
               echo '<td>'.$ligne['nom'].'</td>';
               echo '<td>'.$ligne['prenom'].'</td>';
               if($ligne['reception'] == 0){
-                echo "<td><a href='#?id=$id' id='$id' class='modifier'>J'ai vu</a></td>";
+                echo "<td><a href='#?id=$id' id='$id' class='modifier'>$str[43]</a></td>";
               }
               else{
-                echo "<td><a href='#?id=$id' id='$id' class='modifier'>Déjà vu</a></td>";
+                echo "<td><a href='#?id=$id' id='$id' class='modifier'>$str[44]</a></td>";
               }
               echo '</tr>';
             }
