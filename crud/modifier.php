@@ -9,7 +9,7 @@
     </head>
     <body>
       <?php
-
+      $id = $_GET['id'];
       $langue = 'fr';
 
       if (isset($_GET['langue']))
@@ -38,8 +38,8 @@
               <li class='nav-item dropdown'>
                 <a class='nav-link dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><?php echo $str[5]?></a>
                 <div class='dropdown-menu' aria-labelledby='dropdown05'>
-                  <a class='dropdown-item' href='../creation_offre.php?langue=fr'><?php echo $str[6]?></a>
-                  <a class='dropdown-item' href='../creation_offre.php?langue=en'><?php echo $str[7]?></a>
+                  <a class='dropdown-item' href='modifier.php?id=<?php echo $id ?>&amp;langue=fr'><?php echo $str[6]?></a>
+                  <a class='dropdown-item' href='modifier.php?id=<?php echo $id ?>&amp;langue=en'><?php echo $str[7]?></a>
                 </div>
               </li>
               <li class='nav-item'>
@@ -54,8 +54,8 @@
           $langue = $_GET['langue'];
         include "../langue_".$langue.".php";
         include '../bdd/bdd.php';
-        $id = $_GET['id'];
-        $resultat=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 AND offre_emplois.id_offre = $id ORDER BY offre_emplois.libelle"); /*permet d'afficher les données*/
+        //$resultat=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 AND offre_emplois.id_offre = $id ORDER BY offre_emplois.libelle"); /*permet d'afficher les données*/
+        $resultat=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, supprimer FROM offre_emplois WHERE supprimer = 0 AND offre_emplois.id_offre = 1 ORDER BY offre_emplois.libelle");
         while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
 
         ?>
@@ -117,12 +117,28 @@
                 <small id='passwordHelpBlock' class='form-text text-muted'>
                   <?php echo $str[26] ?>
                 </small>
-                <select class='form-control' name='competences[]' multiple>";
+
                   <?php
-                  $requete2 = "SELECT id_competence, libelle FROM competence;";
+                  $requete2 = "SELECT id_competence FROM posseder WHERE id_offre = $id;";
                   $resultat2 = mysqli_query($connexion, $requete2);
-                  while ($ligne2 = mysqli_fetch_array($resultat2, MYSQLI_BOTH)){ ?>
-                      <option value="<?php echo $ligne2['id_competence']; ?>"><?php echo $ligne2['libelle'] ?></option>';
+                  $tableauCompetences = array();
+                  $i=0;
+                  while ($ligne2 = mysqli_fetch_array($resultat2, MYSQLI_BOTH)){
+                    $tableauCompetences[$i] = $ligne2['id_competence'];
+                    $i++;
+                  }
+                  ?>
+                  <select class='form-control' name='competences[]' multiple>";
+                  <?php
+                  $requete3 = "SELECT id_competence, libelle FROM competence;";
+                  $resultat3 = mysqli_query($connexion, $requete3);
+                  while ($ligne3 = mysqli_fetch_array($resultat3, MYSQLI_BOTH)){
+                    $checked = "";
+                    if(in_array($ligne3['id_competence'], $tableauCompetences)){
+                      $checked = "selected='selected'";
+                    }
+                    ?>
+                      <option value="<?php echo $ligne3['id_competence']; ?>" <?php echo $checked ?>><?php echo $ligne3['libelle'] ?></option>';
                   <?php
                   }
                   ?>

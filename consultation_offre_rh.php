@@ -74,9 +74,9 @@
                             </p>
                             <div class='card-footer'>
                               <p class='text-center'>
-                                <a href='#?id=$id' id='$id' class='candidature'>$str[16]</a>
-                                <a href='crud/modifier.php?id=$id' id='$id' class='modifier'>$str[15]</a>
-                                <a href='crud/supprimer.php?id=$id' id='$id' class='supprimer'>$str[17]</a>
+                                <a href='#?id=$id&amp;langue=$langue' id='$id' class='candidature'>$str[16]</a>
+                                <a href='crud/modifier.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[15]</a>
+                                <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer'>$str[17]</a>
                               </p>
                             </div>
                           </div>
