@@ -14,14 +14,14 @@ $str[8]="Mon Compte";
 //box
 $str[9]="Lieu";
 $str[10]="Type de contrat";
-$str[11]="Salaire annuel en euros";
+$str[11]="Salaire annuel (euros)";
 $str[12]="Date limite";
 $str[13]="URL de la vidéo";
 $str[14]="Compétences";
 
 //boutons
 $str[15]="Modifier";
-$str[16]="Voir des candidatures";
+$str[16]="Candidatures";
 $str[17]="Supprimer";
 
 //création des offres d'emplois
