@@ -160,11 +160,7 @@
                 <div class='form-check form-check-inline'>
                 <input class='form-check-input' type='checkbox' name='doc_cv' value='doc_cv' id='doc_cv'>
                   <label class='form-check-label' for='doc_cv'>
-<<<<<<< HEAD
                        $str[32]
-=======
-                    $str[32]
->>>>>>> 4a34e4b5fe6f73301b35f3bb39e0a28b78e7a1c0
                   </label>
                 </div>
                 <div class='form-check form-check-inline'>

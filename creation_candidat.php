@@ -29,7 +29,7 @@
               <a class='nav-link' href='consultation_offre_rh.php?langue=$langue'>$str[2]</a>
             </li>
             <li class='nav-item active'>
-              <a class='nav-link' href='consulter_profil_candidat.php?langue=$langue'>$str[44]</a>
+              <a class='nav-link' href='consulter_profil_candidat.php?langue=$langue'>$str[444]</a>
             </li>
           </ul>
           <ul class='navbar-nav ml-auto'>
@@ -136,4 +136,6 @@
     </div>
   </form>
 </body>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </html>
