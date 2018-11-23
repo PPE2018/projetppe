@@ -45,12 +45,21 @@
           </li>
         </ul>
       </div>
-    </nav>;
+    </nav>
+    <br />
     <div class='container'>
       <div class='row'>
         <?php
         include "bdd/bdd.php";
-        $resultat=mysqli_query($connexion, 'SELECT id_candidature, date_candidature, libelle, nom, prenom, reception FROM candidature INNER JOIN PERSONNE ON personne.id_personne = candidature.id_personne INNER JOIN offre_emplois ON offre_emplois.id_offre = candidature.id_offre GROUP BY date_candidature DESC');
+        //ID de l'offre
+        if(isset($_GET['id'])){
+            $id_offre = $_GET['id'];
+            $requete =
+            $resultat=mysqli_query($connexion, "SELECT id_candidature, date_candidature, libelle, nom, prenom, reception FROM candidature INNER JOIN PERSONNE ON personne.id_personne = candidature.id_personne INNER JOIN offre_emplois ON offre_emplois.id_offre = candidature.id_offre WHERE offre_emplois.id_offre = $id_offre GROUP BY date_candidature DESC");
+        }
+        else{
+          $resultat=mysqli_query($connexion, 'SELECT id_candidature, date_candidature, libelle, nom, prenom, reception FROM candidature INNER JOIN PERSONNE ON personne.id_personne = candidature.id_personne INNER JOIN offre_emplois ON offre_emplois.id_offre = candidature.id_offre GROUP BY date_candidature DESC');
+        }
         ?>
         <table class="table table-striped">
           <thead class="thead-dark">

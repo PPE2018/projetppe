@@ -54,14 +54,20 @@
           $langue = $_GET['langue'];
         include "../langue_".$langue.".php";
         include '../bdd/bdd.php';
+
+        //ID de l'offre à modifier
+        if(isset($_GET['id'])){
+            $id_offre = $_GET['id'];
+        }
+
         //$resultat=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 AND offre_emplois.id_offre = $id ORDER BY offre_emplois.libelle"); /*permet d'afficher les données*/
-        $resultat=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, supprimer FROM offre_emplois WHERE supprimer = 0 AND offre_emplois.id_offre = 1 ORDER BY offre_emplois.libelle");
+        $resultat=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, supprimer FROM offre_emplois WHERE supprimer = 0 AND offre_emplois.id_offre = $id_offre ORDER BY offre_emplois.libelle");
         while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
 
         ?>
         <div class='container'>
         <h1><?php $str[18] ?></h1>
-          <form action='../envois/creer_offre_envois.php?langue=<?php echo $langue?>' method='post'>
+          <form action='../envois/modif_envois.php?id=<?php echo $id ?>&amp;langue=<?php echo $langue?>' method='post'>
               <!-- Saisie de l'Intitulé du post-->
               <div class='form-group'>
                  <label for='nom_post'><?php echo $str[19] ?> :</label>
