@@ -54,4 +54,11 @@ $str[41]="First name";
 $str[42]="Receipt";
 $str[43]="I saw";
 $str[44]="Already seen";
+
+//creation candidat
+$str[50]="Add/Send";
+$str[51]="Apply for a job :";
+
+
+
  ?>

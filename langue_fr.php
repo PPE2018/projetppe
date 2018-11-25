@@ -56,6 +56,10 @@ $str[42]="Réception";
 $str[43]="J'ai vu";
 $str[44]="Déjà vu";
 
+//creation candidat
+$str[50]="Ajouter/Valider";
+$str[51]="Postuler à une offre :";
+
 
 
 
