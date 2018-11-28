@@ -66,7 +66,7 @@
         <tbody>
       <!--  les offres avec sa fiche -->
       <?php
-      //A REFAIRE !!!!!!!!!!!
+      
       $id=-1;
       $i=0;
       include 'bdd/bdd.php';
@@ -82,7 +82,12 @@
       while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
         if($id!=-1)
         {
-          // bouton vu ou non vu
+          echo" <div class='container'>
+                  <h2>Button States</h2>
+                  <button type='button' class='btn btn-primary disabled'>Vue</button>
+                  <button type='button' class='btn btn-primary disabled'>Non Vue</button>
+                </div>'";
+
         }
         // affiche l'offre
 
@@ -99,7 +104,12 @@
                 <td>$url</td>
               </tr>";
     }
-    //affiche le bouton vu /non vu  echo $nom."<br/>" .$prenom."<br/>" ;
+    echo" <div class='container'>
+            <h2>Button States</h2>
+            <button type='button' class='btn btn-primary disabled'>Vue</button>
+            <button type='button' class='btn btn-primary disabled'>Non Vue</button>
+          </div>'";
+
 
 
        ?>

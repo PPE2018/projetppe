@@ -54,7 +54,7 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4 text-left">
-    <form action="creation_candidature.php" method="post">
+    <form action="envois/creation_candidat_envois.php" method="post">
       <!-- <div classe="contener">
         <div classe="boxe"> -->
             <h2> <?php echo" $str[51]" ?> </h2>
@@ -134,7 +134,7 @@
         }
              ?>
              <div>
-               <input type="submit" name="soumettre" value="<?php echo" $str[50]" ?>"/>
+               <input type="submit" name="creer_candidat" value="<?php echo" $str[50]" ?>"/>
              </div>
 
 
