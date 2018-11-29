@@ -66,29 +66,30 @@
         <tbody>
       <!--  les offres avec sa fiche -->
       <?php
-      
+      //afficher en colone ou ligne CV lm et video
+      $id_perso=1;
       $id=-1;
       $i=0;
       include 'bdd/bdd.php';
-      $resultat= mysqli_query($connexion,
-      "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle, type_contrat, salaire, date_limite, url
-      FROM offre_emplois
-      INNER JOIN necessite N ON N.id_offre=offre_emplois.id_offre
-      INNER JOIN docs D ON D.id= N.id
-      INNER JOIN deposer DE ON DE.id=D.id
-      INNER JOIN candidature C ON C.id_candidature= DE.id_candidature
-      INNER JOIN candidat CA ON CA.id_personne=C.id_personne
-      ORDER BY offre_emplois.libelle;" );
-      while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
-        if($id!=-1)
-        {
-          echo" <div class='container'>
-                  <h2>Button States</h2>
-                  <button type='button' class='btn btn-primary disabled'>Vue</button>
-                  <button type='button' class='btn btn-primary disabled'>Non Vue</button>
-                </div>'";
 
-        }
+      $_SESSION["Candidat"]=1;
+      if(isset($_SESSION["Candidat"])){
+        $id_personne = $_SESSION["Candidat"];
+
+      }
+
+
+
+      $resultat= mysqli_query($connexion,"SELECT offre_emplois.id_offre,offre_emplois.libelle, offre_emplois.type_contrat, offre_emplois.salaire, offre_emplois.date_limite, DE.url
+                                          FROM offre_emplois
+                                          INNER JOIN necessite N ON N.id_offre=offre_emplois.id_offre
+                                          INNER JOIN docs D ON D.id= N.id
+                                          INNER JOIN deposer DE ON DE.id=D.id
+                                          INNER JOIN candidature C ON C.id_candidature= DE.id_candidature
+                                          INNER JOIN candidat CA ON CA.id_personne=C.id_personne
+                                          WHERE CA.id_personne = $id_personne
+                                          ORDER BY offre_emplois.id_offre;" );
+      while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
         // affiche l'offre
 
         $libelle = $ligne['libelle'];
@@ -102,13 +103,13 @@
                 <td>$salaire</td>
                 <td>$typecontr</td>
                 <td>$url</td>
-              </tr>";
+                <td><div class='container'>
+                    <button type='button' class='btn btn-primary disabled'>Vue</button>
+                    <button type='button' class='btn btn-primary disabled'>Non Vue</button>
+                    </div>
+                </td>
+             </tr>";
     }
-    echo" <div class='container'>
-            <h2>Button States</h2>
-            <button type='button' class='btn btn-primary disabled'>Vue</button>
-            <button type='button' class='btn btn-primary disabled'>Non Vue</button>
-          </div>'";
 
 
 
