@@ -52,6 +52,18 @@ $str[39]="Description";
 $str[40]="Name";
 $str[41]="First name";
 $str[42]="Receipt";
+<<<<<<< HEAD
 $str[43]="To check";
 $str[44]="Checked";
+=======
+$str[43]="I saw";
+$str[44]="Already seen";
+
+//creation candidat
+$str[50]="Add/Send";
+$str[51]="Apply for a job :";
+
+
+
+>>>>>>> 45ace40bfcf1b1965475502f5fcd4bfe96a5b69b
  ?>

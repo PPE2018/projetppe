@@ -66,70 +66,53 @@
         <tbody>
       <!--  les offres avec sa fiche -->
       <?php
-
-      //affiche le nom et prenom du candidat
+      //afficher en colone ou ligne CV lm et video
+      $id_perso=1;
+      $id=-1;
+      $i=0;
       include 'bdd/bdd.php';
+
       $_SESSION["Candidat"]=1;
       if(isset($_SESSION["Candidat"])){
         $id_personne = $_SESSION["Candidat"];
-        include 'bdd/bdd.php';
 
-        $resultat= mysqli_query($connexion, "SELECT nom, prenom FROM candidat C WHERE id_personne=$id_personne ;");
-        while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
-          $nom=$ligne['nom'];
-          $prenom=$ligne['prenom'];
-
-          echo $nom."<br/>" .$prenom."<br/>" ;
-
-        }
       }
-      $id = -1;
-      $_GET["id_offre"]=1;
-      if (isset ($_GET["id_offre"])){
 
-        $id_offre=$_GET["id_offre"];
+
+
+      $resultat= mysqli_query($connexion,"SELECT offre_emplois.id_offre,offre_emplois.libelle, offre_emplois.type_contrat, offre_emplois.salaire, offre_emplois.date_limite, DE.url
+                                          FROM offre_emplois
+                                          INNER JOIN necessite N ON N.id_offre=offre_emplois.id_offre
+                                          INNER JOIN docs D ON D.id= N.id
+                                          INNER JOIN deposer DE ON DE.id=D.id
+                                          INNER JOIN candidature C ON C.id_candidature= DE.id_candidature
+                                          INNER JOIN candidat CA ON CA.id_personne=C.id_personne
+                                          WHERE CA.id_personne = $id_personne
+                                          ORDER BY offre_emplois.id_offre;" );
+      while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
         // affiche l'offre
-        $resul=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE offre_emplois.id_offre=$id_offre;");
 
-        while($ligne = mysqli_fetch_array($resul, MYSQLI_BOTH)){
-          echo '<tr>';
-          $libelle = $ligne['libelle_offre'];
-          $typecontr=$ligne['type_contrat'];
-          $salaire= $ligne['salaire'];
-          $date= $ligne['date_limite'];
-          echo '<td>'.$libelle.'</td>';
-          echo '<td>'.$date.'</td>';
-          echo '<td>'.$salaire.'</td>';
-          echo '<td>'.$typecontr.'</td>';
-          echo '</tr>';
+        $libelle = $ligne['libelle'];
+        $typecontr=$ligne['type_contrat'];
+        $salaire= $ligne['salaire'];
+        $date= $ligne['date_limite'];
+        $url= $ligne['url'];
+        echo "<tr>
+                <td>$libelle</td>
+                <td>$date</td>
+                <td>$salaire</td>
+                <td>$typecontr</td>
+                <td>$url</td>
+                <td><div class='container'>
+                    <button type='button' class='btn btn-primary disabled'>Vue</button>
+                    <button type='button' class='btn btn-primary disabled'>Non Vue</button>
+                    </div>
+                </td>
+             </tr>";
+    }
 
-        }
 
-    //
-    //     while ($ligne=mysqli_fetch_array($resul,MYSQLI_BOTH)){
-    //
-    //       $libelle = $ligne['libelle_offre'];
-    //       $typecontr=$ligne['type_contrat'];
-    //       $salaire= $ligne['salaire'];
-    //
-    //       echo "
-    //                 $libelle<br/>
-    //                 $desc
-    //                   <br/> $str[9] : $lieu
-    //                   <br/> $str[10] : $typecontr
-    //                   <br/> $str[11] : $salaire
-    //                   <br/> $str[12] : $datelim
-    //                   <br/> $str[13] : $video
-    //                   <br/> $str[14] : <br/> - $competence";
-    //     }
-    //     else{
-    //       $competence = $ligne['libelle'];
-    //       echo "<br />- $competence";
-    //   }
-    //   $id=$id_offre;
-    // }
 
-  }
        ?>
      </tbody>
    </table>

@@ -56,6 +56,10 @@ $str[42]="Réception";
 $str[43]="À verifier";
 $str[44]="Verifié";
 
+//creation candidat
+$str[50]="Ajouter/Valider";
+$str[51]="Postuler à une offre :";
+
 
 
 
