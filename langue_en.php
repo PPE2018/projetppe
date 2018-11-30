@@ -59,6 +59,15 @@ $str[44]="Already seen";
 $str[50]="Add/Send";
 $str[51]="Apply for a job :";
 
+//consulter profil candidat
+$str[52]="Received :";
+$str[53]="Offerts :";
+$str[54]="Deadline :";
+$str[55]="Annual salary (euros) :";
+$str[56]="Types of contract :";
+$str[57]="CV :";
+$str[58]="Cover letter :";
+$str[59]="Video :";
 
 
  ?>

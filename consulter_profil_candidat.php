@@ -54,14 +54,14 @@
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Reçu :</th>
-                  <th scope="col">Offre :</th>
-                  <th scope="col">Date limite :</th>
-                  <th scope="col">Salaire</th>
-                  <th scope="col">Type de contrat</th>
-                  <th scope="col">CV :</th>
-                  <th scope="col">Lettre de motivation :</th>
-                  <th scope="col">Vidéo :</th>
+                  <th scope="col"><?php echo "$str[52]"?></th>
+                  <th scope="col"><?php echo "$str[53]"?></th>
+                  <th scope="col"><?php echo "$str[54]"?></th>
+                  <th scope="col"><?php echo "$str[55]" ?></th>
+                  <th scope="col"><?php echo "$str[56]"?></th>
+                  <th scope="col"><?php echo "$str[57]"?></th>
+                  <th scope="col"><?php echo "$str[58]"?></th>
+                  <th scope="col"><?php echo "$str[59]"?></th>
 
 
                 </tr>

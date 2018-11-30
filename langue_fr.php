@@ -60,6 +60,15 @@ $str[44]="Verifié";
 $str[50]="Ajouter/Valider";
 $str[51]="Postuler à une offre :";
 
+//consulter profil candidat
+$str[52]="Reçu :";
+$str[53]="Offre :";
+$str[54]="Date limite :";
+$str[55]="Salaire :";
+$str[56]="Type de contrat :";
+$str[57]="CV :";
+$str[58]="Lettre de motivation :";
+$str[59]="Vidéo :";
 
 
 
