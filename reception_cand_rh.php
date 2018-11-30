@@ -85,10 +85,10 @@
               echo '<td>'.$ligne['nom'].'</td>';
               echo '<td>'.$ligne['prenom'].'</td>';
               if($ligne['reception'] == 0){
-                echo "<td><a href='#?id=$id' id='$id' class='modifier'>$str[43]</a></td>";
+                echo "<td><a href='crud/offre_vu.php?id=$id&amp;langue=$langue' id='$id' class='a_verifier'>$str[43]</a></td>";
               }
               else{
-                echo "<td><a href='#?id=$id' id='$id' class='modifier'>$str[44]</a></td>";
+                echo "<td><a href='#?id=$id' id='$id' class='verifie'>$str[44]</a></td>";
               }
               echo '</tr>';
             }

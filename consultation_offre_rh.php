@@ -11,7 +11,6 @@
       <?php
 
       $langue = 'fr';
-
       if (isset($_GET['langue']))
         $langue = $_GET['langue'];
       include "langue_".$langue.".php";

@@ -53,8 +53,8 @@ $str[39]="Libellé";
 $str[40]="Nom";
 $str[41]="Prénom";
 $str[42]="Réception";
-$str[43]="J'ai vu";
-$str[44]="Déjà vu";
+$str[43]="À verifier";
+$str[44]="Verifié";
 
 
 
