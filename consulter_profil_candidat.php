@@ -80,15 +80,12 @@
       if(isset($_SESSION["id_personne"])){
         $id_perso = $_SESSION["id_personne"];
 
-        $resultat= mysqli_query($connexion,"SELECT offre_emplois.id_offre,offre_emplois.libelle, offre_emplois.type_contrat, offre_emplois.salaire, offre_emplois.date_limite, DE.url
+        $resultat= mysqli_query($connexion,"SELECT offre_emplois.id_offre,offre_emplois.libelle, offre_emplois.type_contrat, offre_emplois.salaire, offre_emplois.date_limite, DE.url, DE.id, C.reception
                                             FROM offre_emplois
-                                            INNER JOIN necessite N ON N.id_offre=offre_emplois.id_offre
-                                            INNER JOIN docs D ON D.id= N.id
-                                            INNER JOIN deposer DE ON DE.id=D.id
-                                            INNER JOIN candidature C ON C.id_candidature= DE.id_candidature
-                                            INNER JOIN candidat CA ON CA.id_personne=C.id_personne
-                                            WHERE offre_emplois.id_offre = $id_perso AND CA.id_personne=$id_perso
-                                            ORDER BY offre_emplois.id_offre;" );
+                                            INNER JOIN candidature C ON C.id_offre= offre_emplois.id_offre
+                                            INNER JOIN deposer DE ON DE.id_candidature=C.id_candidature
+                                            WHERE C.id_personne=$id_perso
+                                            ORDER BY offre_emplois.id_offre , DE.id;" );
         while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
           $id_offre=$ligne['id_offre'];
           if ($id_offre!=$id){
@@ -102,13 +99,24 @@
             $salaire= $ligne['salaire'];
             $date= $ligne['date_limite'];
             $url= $ligne['url'];
-            echo "<tr>
+            $reception =$ligne ['reception'];
 
-                    <td><div class='container'>
-                        <button type='button' class='btn btn-primary disabled'>Vue</button>
-                        </div>
-                    </td>
-                    <td>$libelle</td>
+            echo "<tr>";
+              if ($reception==1) {
+                echo"<td><div class='container'>
+                       <button type='button' class='btn btn-primary disabled'>Vue</button>
+                       </div>
+                     </td>";
+              }
+              else {
+                echo"<td><div class='container'>
+                       <button type='button' class='btn btn-danger disabled'>Non Vue</button>
+                       </div>
+                     </td>";
+              }
+
+
+               echo"<td>$libelle</td>
                     <td>$date</td>
                     <td>$salaire</td>
                     <td>$typecontr</td>
