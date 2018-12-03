@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(isset($_SESSION['admin'])){
+    $_SESSION['admin'] = 0;
+  }
+?>
 <html>
     <head>
         <title>Consultation des offres  :</title>
@@ -14,10 +20,9 @@
       if (isset($_GET['langue']))
         $langue = $_GET['langue'];
       include "langue_".$langue.".php";
-
-      echo"
+      ?>
           <nav class='navbar sticky-top navbar-expand-lg navbar-dark bg-dark'>
-          <a class='navbar-brand' href='#'>$str[1]</a>
+          <a class='navbar-brand' href='#'><?php echo $str[1]?></a>
           <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarsExample05' aria-controls='navbarsExample05' aria-expanded='false' aria-label='Toggle navigation'>
             <span class='navbar-toggler-icon'></span>
           </button>
@@ -25,31 +30,62 @@
           <div class='collapse navbar-collapse' id='navbarsExample05'>
             <ul class='navbar-nav mr-auto'>
               <li class='nav-item active'>
-                <a class='nav-link' href='consultation_offre_rh.php?langue=$langue'>$str[2]</a>
+                <a class='nav-link' href='consultation_offre.php?langue=<?php echo $langue ?>'><?php echo$str[2]?></a>
               </li>
+              <?php
+              if($_SESSION['admin'] == 20){
+              ?>
               <li class='nav-item '>
-                <a class='nav-link' href='creation_offre.php?langue=$langue'>$str[3]</a>
+                <a class='nav-link' href='creation_offre.php?langue=<?php echo $langue ?>'><?php echo$str[3]?></a>
               </li>
               <li class='nav-item'>
-                <a class='nav-link' href='reception_cand_rh.php?langue=$langue'>$str[4]</a>
+                <a class='nav-link' href='reception_cand_rh.php?langue=<?php echo $langue ?>'><?php echo$str[4]?></a>
               </li>
+            <?php } ?>
             </ul>
             <ul class='navbar-nav ml-auto'>
               <li class='nav-item dropdown'>
-                <a class='nav-link dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>$str[5]</a>
+                <a class='nav-link dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><?php echo$str[5]?></a>
                 <div class='dropdown-menu' aria-labelledby='dropdown05'>
-                  <a class='dropdown-item' href='consultation_offre_rh.php?langue=fr'>$str[6]</a>
-                  <a class='dropdown-item' href='consultation_offre_rh.php?langue=en'>$str[7]</a>
+                  <a class='dropdown-item' href='consultation_offre.php?langue=fr'><?php echo $str[6]?></a>
+                  <a class='dropdown-item' href='consultation_offre.php?langue=en'><?php echo $str[7]?></a>
                 </div>
               </li>
+              <?php
+
+              if($_SESSION['admin'] == 20){
+              ?>
               <li class='nav-item'>
-                <a class='nav-link' href='#'>$str[8]</a>
+                <a class='nav-link' href='login/disconnect.php?langue=<?php echo $langue ?>'>Déconnection</a>
               </li>
+
+              <?php
+              }
+              if($_SESSION['admin'] == 10){
+              ?>
+              <li class='nav-item dropdown'>
+                <a class='nav-link dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><?php echo $str[8] ?></a>
+                <div class='dropdown-menu' aria-labelledby='dropdown05'>
+                  <a class='dropdown-item' href=#>Candidatures</a>
+                  <a class='dropdown-item' href='login/disconnect.php?langue=<?php echo $langue ?>'>Déconnection</a>
+                </div>
+              </li>
+              <?php
+              }
+
+              if($_SESSION['admin'] == 0){
+              ?>
+                <li class='nav-item'>
+                  <a class='nav-link' href='login/connexion.php?langue=<?php echo $langue ?>'><?php echo $str[888] ?></a>
+                </li>
+              <?php
+              }
+              ?>
             </ul>
           </div>
-        </nav>";
-        ?>
+        </nav>
               <?php
+              echo $_SESSION['admin'];
               include 'bdd/bdd.php';
               //$resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
               $resultat=mysqli_query($connexion, 'SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle, supprimer FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE supprimer = 0 ORDER BY offre_emplois.libelle'); /*permet d'afficher les données*/
@@ -72,11 +108,14 @@
                       echo "</div>
                             </p>
                             <div class='card-footer'>
-                              <p class='text-center'>
-                                <a href='reception_cand_rh.php?id=$id&amp;langue=$langue' id='$id' class='candidature'>$str[16]</a>
-                                <a href='crud/modifier.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[15]</a>
-                                <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer'>$str[17]</a>
-                              </p>
+                              <p class='text-center'>";
+                      if($_SESSION['admin'] == 20){
+                        echo "<a href='reception_cand_rh.php?id=$id&amp;langue=$langue' id='$id' class='candidature'>$str[16]</a>
+                        <a href='crud/modifier.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[15]</a>
+                        <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer'>$str[17]</a>";
+                      }
+
+                      echo"        </p>
                             </div>
                           </div>
                         </div>
@@ -123,24 +162,27 @@
                 $id=$id_offre;
               }
             }
-              echo  " </div>
-                      </p>
-                      <div class='card-footer'>
-                      <p class='text-center'>
-                        <a href='reception_cand_rh.php?id=$id&amp;langue=$langue' id='$id' class='candidature'>$str[16]</a>
-                        <a href='crud/modifier.php?id=$id' id='$id' class='modifier'>$str[15]</a>
-                        <a href='crud/supprimer.php?id=$id' id='$id' class='supprimer'>$str[17]</a>
-                      </p>
-                    </div>
+            echo "</div>
+                  </p>
+                  <div class='card-footer'>
+                    <p class='text-center'>";
+            if($_SESSION['admin'] == 20){
+              echo "<a href='reception_cand_rh.php?id=$id&amp;langue=$langue' id='$id' class='candidature'>$str[16]</a>
+              <a href='crud/modifier.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[15]</a>
+              <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer'>$str[17]</a>";
+            }
+            if($_SESSION['admin'] == 10){
+              echo "<a href='creation_candidat.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[15]</a>";
+            }
+
+            echo"        </p>
                   </div>
                 </div>
               </div>
-                    ";
+            </div>
+                  ";
               ?>
     </body>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </html>
-<?php
-mysqli_close($connexion);
- ?>

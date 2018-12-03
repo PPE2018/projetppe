@@ -10,6 +10,7 @@ $str[5]="Langue";
 $str[6]="Français";
 $str[7]="Anglais";
 $str[8]="Mon Compte";
+$str[888]="Connexion";
 
 //box
 $str[9]="Lieu";
@@ -60,11 +61,12 @@ $str[44]="Verifié";
 $str[50]="Ajouter/Valider";
 $str[51]="Postuler à une offre :";
 
+//Connexion
 
-
-
-
-
-
+$str[52]="Mot de passe";
+$str[53]="vérification";
+$str[54]="Connection";
+$str[55]="Inscription";
+$str[56]="Se connecter";
 
  ?>

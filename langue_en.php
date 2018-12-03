@@ -10,6 +10,7 @@ $str[5]="Languages";
 $str[6]="French";
 $str[7]="English";
 $str[8]="Account";
+$str[888]="Connection";
 
 //box
 $str[9]="Place";
@@ -59,6 +60,11 @@ $str[44]="Already seen";
 $str[50]="Add/Send";
 $str[51]="Apply for a job :";
 
+//Connexion
 
-
+$str[52]="Password";
+$str[53]="verification";
+$str[54]="Connexion";
+$str[55]="Register";
+$str[56]="Login";
  ?>

@@ -5,6 +5,6 @@
     $id = $_GET['id'];
     $requete = "UPDATE offre_emplois SET supprimer = 1 WHERE id_offre=$id";
     $resultat = mysqli_query($connexion, $requete);
-    header("location: ../consultation_offre_rh.php");
+    header("location: ../consultation_offre.php");
     exit;
  ?>

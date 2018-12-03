@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  if($_SESSION['admin'] != true){
+    header("location: consultation_offre.php");
+  }
+  else{
+?>
+
 <html>
     <head>
         <title>Création_Offre :</title>
@@ -193,3 +201,6 @@
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 </html>
+<?php
+}
+?>
