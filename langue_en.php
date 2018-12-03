@@ -68,6 +68,8 @@ $str[56]="Types of contract :";
 $str[57]="CV :";
 $str[58]="Cover letter :";
 $str[59]="Video :";
+$str[60]="See";
+$str[61]="Not see";
 
 
  ?>

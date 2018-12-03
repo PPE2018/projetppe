@@ -36,8 +36,8 @@
             <li class='nav-item dropdown'>
               <a class='nav-link dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>$str[5]</a>
               <div class='dropdown-menu' aria-labelledby='dropdown05'>
-                <a class='dropdown-item' href='creation_offre.php?langue=fr'>$str[6]</a>
-                <a class='dropdown-item' href='creation_offre.php?langue=en'>$str[7]</a>
+                <a class='dropdown-item' href='consulter_profil_candidat.php?langue=fr'>$str[6]</a>
+                <a class='dropdown-item' href='consulter_profil_candidat.php?langue=en'>$str[7]</a>
               </div>
             </li>
             <li class='nav-item'>
@@ -104,13 +104,13 @@
             echo "<tr>";
               if ($reception==1) {
                 echo"<td><div class='container'>
-                       <button type='button' class='btn btn-primary disabled'>Vue</button>
+                       <button type='button' class='btn btn-primary disabled'>$str[60]</button>
                        </div>
                      </td>";
               }
               else {
                 echo"<td><div class='container'>
-                       <button type='button' class='btn btn-danger disabled'>Non Vue</button>
+                       <button type='button' class='btn btn-danger disabled'>$str[61]</button>
                        </div>
                      </td>";
               }
@@ -129,7 +129,7 @@
           }
           else{
             $url=$ligne ['url'];
-            echo"<td>- $url</td>
+            echo"<td>$url</td>
             ";
 
           }

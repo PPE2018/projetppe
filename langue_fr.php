@@ -69,8 +69,8 @@ $str[56]="Type de contrat :";
 $str[57]="CV :";
 $str[58]="Lettre de motivation :";
 $str[59]="Vidéo :";
-
-
+$str[60]="Vue";
+$str[61]="Non vue";
 
 
 
