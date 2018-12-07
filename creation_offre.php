@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if($_SESSION['admin'] != true){
+  if($_SESSION['admin'] != 20){
     header("location: consultation_offre.php");
   }
   else{

@@ -81,4 +81,7 @@ $str[63]="verification";
 $str[64]="Connexion";
 $str[65]="Register";
 $str[66]="Login";
+
+$str[62] = "Logout";
+$str[63] = "Candidate";
  ?>

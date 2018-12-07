@@ -63,11 +63,11 @@ $str[51]="Postuler à une offre :";
 
 //Connexion
 
-$str[61]="Mot de passe";
-$str[62]="vérification";
-$str[63]="Connection";
-$str[64]="Inscription";
-$str[65]="Se connecter";
+$str[62]="Mot de passe";
+$str[63]="vérification";
+$str[64]="Connection";
+$str[65]="Inscription";
+$str[66]="Se connecter";
 
 //consulter profil candidat
 $str[52]="Reçu :";
@@ -81,4 +81,6 @@ $str[59]="Vidéo :";
 $str[60]="Vue";
 $str[61]="Non vue";
 
+$str[62] = "Déconnection";
+$str[63] = "Candidater";
  ?>

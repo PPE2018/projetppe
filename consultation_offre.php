@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if(isset($_SESSION['admin'])){
+  if(!isset($_SESSION['admin'])){
     $_SESSION['admin'] = 0;
   }
 ?>
@@ -66,8 +66,8 @@
               <li class='nav-item dropdown'>
                 <a class='nav-link dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><?php echo $str[8] ?></a>
                 <div class='dropdown-menu' aria-labelledby='dropdown05'>
-                  <a class='dropdown-item' href=#>Candidatures</a>
-                  <a class='dropdown-item' href='login/disconnect.php?langue=<?php echo $langue ?>'>Déconnection</a>
+                  <a class='dropdown-item' href=consulter_profil_candidat.php><?php echo $str[16] ?></a>
+                  <a class='dropdown-item' href='login/disconnect.php?langue=<?php echo $langue ?>'><?php echo $str[62] ?></a>
                 </div>
               </li>
               <?php
@@ -172,7 +172,7 @@
               <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer'>$str[17]</a>";
             }
             if($_SESSION['admin'] == 10){
-              echo "<a href='creation_candidat.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[15]</a>";
+              echo "<a href='creation_candidat.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[63]</a>";
             }
 
             echo"        </p>

@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if($_SESSION['admin'] != 10){
+    header("location: consultation_offre.php");
+  }
+  else{
+?>
 <html>
     <head>
         <title>Création_Candidature :</title>
@@ -27,7 +34,7 @@
         <div class='collapse navbar-collapse' id='navbarsExample05'>
           <ul class='navbar-nav mr-auto'>
             <li class='nav-item'>
-              <a class='nav-link' href='consultation_offre_rh.php?langue=$langue'>$str[2]</a>
+              <a class='nav-link' href='consultation_offre.php?langue=$langue'>$str[2]</a>
             </li>
             <li class='nav-item active'>
               <a class='nav-link' href='consulter_profil_candidat.php?langue=$langue'>$str[444]</a>
@@ -40,15 +47,22 @@
                 <a class='dropdown-item' href='creation_candidat.php?langue=fr'>$str[6]</a>
                 <a class='dropdown-item' href='creation_candidat.php?langue=en'>$str[7]</a>
               </div>
+            </li>";
+            if($_SESSION['admin'] == 10){
+            ?>
+            <li class='nav-item dropdown'>
+              <a class='nav-link dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><?php echo $str[8] ?></a>
+              <div class='dropdown-menu' aria-labelledby='dropdown05'>
+                <a class='dropdown-item' href=consulter_profil_candidat.php>Candidatures</a>
+                <a class='dropdown-item' href='login/disconnect.php?langue=<?php echo $langue ?>'>Déconnection</a>
+              </div>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>$str[8]</a>
-            </li>
+            <?php
+            }
+            ?>
           </ul>
         </div>
-      </nav>";
-
-      ?>
+      </nav>
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-4">
@@ -61,10 +75,9 @@
             <?php
             include 'bdd/bdd.php';
             $id = -1;
-            $_GET["id_offre"]=1;
-            if (isset ($_GET["id_offre"])){
+            if (isset ($_GET["id"])){
 
-              $id_offre=$_GET["id_offre"];
+              $id_offre=$_GET["id"];
               // affiche l'offre
               $resul=mysqli_query($connexion, "SELECT offre_emplois.id_offre, offre_emplois.libelle as libelle_offre, description, lieu, type_contrat, salaire, date_limite, video, competence.libelle FROM offre_emplois INNER JOIN posseder ON offre_emplois.id_offre = posseder.id_offre INNER JOIN competence ON posseder.id_competence = competence.id_competence WHERE offre_emplois.id_offre=$id_offre;");
 
@@ -95,13 +108,12 @@
               }
               else{
                 $competence = $ligne['libelle'];
-                echo "<br/>-$competence";
+                echo "<br/>- $competence";
             }
             $id=$id_offre;
           }
 
           //afficher le nom du candidat
-          $_SESSION["Candidat"]=1;
           if(isset($_SESSION["Candidat"])){
             $id_personne = $_SESSION["Candidat"];
             include 'bdd/bdd.php';
@@ -111,7 +123,7 @@
               $nom=$ligne['nom'];
               $prenom=$ligne['prenom'];
 
-              echo "<h3>".$nom  .$prenom."</h3><br/>" ;
+              echo "<h3>".$nom." ".$prenom."</h3><br/>" ;
 
             }
           }
@@ -149,3 +161,4 @@
 <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </html>
+<?php }?>

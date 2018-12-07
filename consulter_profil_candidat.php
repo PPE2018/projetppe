@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if($_SESSION['admin'] != 10){
+    header("location: consultation_offre.php");
+  }
+  else{
+?>
 <html>
     <head>
         <title>Consulter profils :</title>
@@ -26,7 +33,7 @@
         <div class='collapse navbar-collapse' id='navbarsExample05'>
           <ul class='navbar-nav mr-auto'>
             <li class='nav-item'>
-              <a class='nav-link' href='consultation_offre_rh.php?langue=$langue'>$str[2]</a>
+              <a class='nav-link' href='consultation_offre.php?langue=$langue'>$str[2]</a>
             </li>
             <li class='nav-item active'>
               <a class='nav-link' href='consulter_profil_candidat.php?langue=$langue'>$str[444]</a>
@@ -39,15 +46,22 @@
                 <a class='dropdown-item' href='consulter_profil_candidat.php?langue=fr'>$str[6]</a>
                 <a class='dropdown-item' href='consulter_profil_candidat.php?langue=en'>$str[7]</a>
               </div>
+            </li>";
+            if(isset($_SESSION['admin']) == 10){
+            ?>
+            <li class='nav-item dropdown'>
+              <a class='nav-link dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><?php echo $str[8] ?></a>
+              <div class='dropdown-menu' aria-labelledby='dropdown05'>
+                <a class='dropdown-item' href=consulter_profil_candidat.php><?php echo $str[16] ?></a>
+                <a class='dropdown-item' href='login/disconnect.php?langue=<?php echo $langue ?>'><?php echo $str[62] ?></a>
+              </div>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>$str[8]</a>
-            </li>
+            <?php
+            }
+            ?>
           </ul>
         </div>
-      </nav>";
-
-      ?>
+      </nav>
       <div class='container'>
         <div class='row'>
           <div class='col-lg-12'>
@@ -149,3 +163,4 @@
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
 </html>
+<?php } ?>

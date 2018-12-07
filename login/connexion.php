@@ -46,7 +46,7 @@
         <!-- Partie connexion-->
         <div class='col-sm-6'>
           <form action='login.php?langue=<?php echo $langue ?>' method='post'>
-            <h1><?php echo $str[54]?></h1>
+            <h1><?php echo $str[64]?></h1>
             <!-- Saisie du nom-->
             <div class='form-group'>
                <label for='nom_post'><?php echo $str[40]?> :</label>
@@ -54,20 +54,20 @@
             </div>
             <!-- Saisie du mot de passe -->
             <div class='form-group'>
-               <label for='nom_post'><?php echo $str[52]?> :</label>
+               <label for='nom_post'><?php echo $str[62]?> :</label>
                 <input type='password' class='form-control' name='mdp' value=''/>
             </div>
 
             <!-- Bouton-->
             <div>
-              <input type='submit' class=' btn btn-primary' value='<?php echo $str[56]?>' />
+              <input type='submit' class=' btn btn-primary' value='<?php echo $str[66]?>' />
             </div>
           </form>
         </div>
         <!-- Partie Inscription-->
         <div class='col-sm-6'>
           <form action='register.php' method='post'>
-            <h1><?php echo $str[55]?></h1>
+            <h1><?php echo $str[65]?></h1>
             <!-- Saisie du nom-->
             <div class='form-group'>
                <label for='nom_post'><?php echo $str[40]?> :</label>
@@ -82,19 +82,19 @@
 
             <!-- Saisie du mot de passe-->
             <div class='form-group'>
-               <label for='nom_post'><?php echo $str[52]?> :</label>
+               <label for='nom_post'><?php echo $str[62]?> :</label>
                 <input type='text' class='form-control' name='mdp' value=''/>
             </div>
 
             <!-- Saisie du mot de passe-->
             <div class='form-group'>
-               <label for='nom_post'><?php echo $str[52]?>: <?php echo $str[53]?></label>
+               <label for='nom_post'><?php echo $str[62]?>: <?php echo $str[63]?></label>
                 <input type='text' class='form-control' name='mdp_verif' value=''/>
             </div>
 
             <!-- Bouton-->
             <div>
-              <input type='submit' class=' btn btn-primary' value='<?php echo $str[55]?>' />
+              <input type='submit' class=' btn btn-primary' value='<?php echo $str[65]?>' />
             </div>
           </form>
         </div>
