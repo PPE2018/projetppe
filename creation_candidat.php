@@ -53,8 +53,8 @@
             <li class='nav-item dropdown'>
               <a class='nav-link dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><?php echo $str[8] ?></a>
               <div class='dropdown-menu' aria-labelledby='dropdown05'>
-                <a class='dropdown-item' href=consulter_profil_candidat.php>Candidatures</a>
-                <a class='dropdown-item' href='login/disconnect.php?langue=<?php echo $langue ?>'>Déconnection</a>
+                <a class='dropdown-item' href=consulter_profil_candidat.php><?php echo $str[63] ?></a>
+                <a class='dropdown-item' href='login/disconnect.php?langue=<?php echo $langue ?>'><?php echo $str[62] ?></a>
               </div>
             </li>
             <?php
