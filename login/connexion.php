@@ -34,9 +34,6 @@
               <a class='dropdown-item' href='connexion.php?langue=en'><?php echo $str[7] ?></a>
             </div>
           </li>
-          <li class='nav-item active'>
-            <a class='nav-link' href='#'><?php echo $str[8] ?></a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -54,7 +51,7 @@
             </div>
             <!-- Saisie du mot de passe -->
             <div class='form-group'>
-               <label for='nom_post'><?php echo $str[62]?> :</label>
+               <label for='nom_post'><?php echo $str[622]?> :</label>
                 <input type='password' class='form-control' name='mdp' value=''/>
             </div>
 
@@ -82,13 +79,13 @@
 
             <!-- Saisie du mot de passe-->
             <div class='form-group'>
-               <label for='nom_post'><?php echo $str[62]?> :</label>
+               <label for='nom_post'><?php echo $str[622]?> :</label>
                 <input type='text' class='form-control' name='mdp' value=''/>
             </div>
 
             <!-- Saisie du mot de passe-->
             <div class='form-group'>
-               <label for='nom_post'><?php echo $str[62]?>: <?php echo $str[63]?></label>
+               <label for='nom_post'><?php echo $str[622]?>: (<?php echo $str[633]?>)</label>
                 <input type='text' class='form-control' name='mdp_verif' value=''/>
             </div>
 

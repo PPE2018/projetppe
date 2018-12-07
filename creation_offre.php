@@ -34,7 +34,7 @@
           <div class='collapse navbar-collapse' id='navbarsExample05'>
             <ul class='navbar-nav mr-auto'>
               <li class='nav-item'>
-                <a class='nav-link' href='consultation_offre_rh.php?langue=$langue'>$str[2]</a>
+                <a class='nav-link' href='consultation_offre.php?langue=$langue'>$str[2]</a>
               </li>
               <li class='nav-item active'>
                 <a class='nav-link' href='creation_offre.php?langue=$langue'>$str[3]</a>
@@ -52,7 +52,7 @@
                 </div>
               </li>
               <li class='nav-item'>
-                <a class='nav-link' href='#'>$str[8]</a>
+                <a class='nav-link' href='login/disconnect.php?langue=$langue'>$str[62]</a>
               </li>
             </ul>
           </div>

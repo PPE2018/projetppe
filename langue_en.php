@@ -76,12 +76,12 @@ $str[61]="Not see";
 
 //Connexion
 
-$str[62]="Password";
-$str[63]="verification";
+$str[622]="Password";
+$str[633]="verification";
 $str[64]="Connexion";
 $str[65]="Register";
 $str[66]="Login";
 
 $str[62] = "Logout";
-$str[63] = "Candidate";
+$str[63] = "Apply";
  ?>
