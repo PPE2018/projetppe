@@ -54,7 +54,7 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4 text-left">
-    <form action="envois/creation_candidat_envois.php" method="post">
+    <form action="envois/creation_candidat_envois.php" method="post" enctype="multipart/form-data">
       <!-- <div classe="contener">
         <div classe="boxe"> -->
             <h2> <?php echo" $str[51]" ?> </h2>
@@ -126,15 +126,17 @@
               echo "<div>
                     <h3>$libel :</h3>
 
-                    <input type='hidden' name='MAX_FILE_SIZE' value='1048576' />
-                    <input type='file' name='$ids' /><br />
+                    <input type='hidden' name='MAX_FILE_SIZE' value='1048576' >
+                    <input type='file' name='patate' ><br />
 
-                  </div>";
+                  </div> </br>";
               }
         }
              ?>
+             <input type="hidden" name="offre" value ="<?php echo "$id_offre"?>">
+             <input type="hidden" name="session" value ="<?php echo "  $id_personne "?>">
              <div>
-               <input type="submit" name="creer_candidat" value="<?php echo" $str[50]" ?>"/>
+               <input type="submit" name="creer_candidat" value="<?php echo" $str[50]" ?>">
              </div>
 
 

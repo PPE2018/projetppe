@@ -60,11 +60,25 @@ $str[44]="Already seen";
 $str[50]="Add/Send";
 $str[51]="Apply for a job :";
 
+
+
+//consulter profil candidat
+$str[52]="Received :";
+$str[53]="Offerts :";
+$str[54]="Deadline :";
+$str[55]="Annual salary (euros) :";
+$str[56]="Types of contract :";
+$str[57]="CV :";
+$str[58]="Cover letter :";
+$str[59]="Video :";
+$str[60]="See";
+$str[61]="Not see";
+
 //Connexion
 
-$str[52]="Password";
-$str[53]="verification";
-$str[54]="Connexion";
-$str[55]="Register";
-$str[56]="Login";
+$str[62]="Password";
+$str[63]="verification";
+$str[64]="Connexion";
+$str[65]="Register";
+$str[66]="Login";
  ?>

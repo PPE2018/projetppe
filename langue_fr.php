@@ -63,10 +63,22 @@ $str[51]="Postuler à une offre :";
 
 //Connexion
 
-$str[52]="Mot de passe";
-$str[53]="vérification";
-$str[54]="Connection";
-$str[55]="Inscription";
-$str[56]="Se connecter";
+$str[61]="Mot de passe";
+$str[62]="vérification";
+$str[63]="Connection";
+$str[64]="Inscription";
+$str[65]="Se connecter";
+
+//consulter profil candidat
+$str[52]="Reçu :";
+$str[53]="Offre :";
+$str[54]="Date limite :";
+$str[55]="Salaire :";
+$str[56]="Type de contrat :";
+$str[57]="CV :";
+$str[58]="Lettre de motivation :";
+$str[59]="Vidéo :";
+$str[60]="Vue";
+$str[61]="Non vue";
 
  ?>
