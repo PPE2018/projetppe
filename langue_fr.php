@@ -10,6 +10,7 @@ $str[5]="Langue";
 $str[6]="Français";
 $str[7]="Anglais";
 $str[8]="Mon Compte";
+$str[888]="Connexion";
 
 //box
 $str[9]="Lieu";
@@ -60,6 +61,14 @@ $str[44]="Verifié";
 $str[50]="Ajouter/Valider";
 $str[51]="Postuler à une offre :";
 
+//Connexion
+
+$str[622]="Mot de passe";
+$str[633]="vérification";
+$str[64]="Connection";
+$str[65]="Inscription";
+$str[66]="Se connecter";
+
 //consulter profil candidat
 $str[52]="Reçu :";
 $str[53]="Offre :";
@@ -72,8 +81,6 @@ $str[59]="Vidéo :";
 $str[60]="Vue";
 $str[61]="Non vue";
 
-
-
-
-
+$str[62] = "Déconnection";
+$str[63] = "Postuler";
  ?>

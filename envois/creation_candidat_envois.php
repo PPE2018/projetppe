@@ -1,9 +1,10 @@
   <?php
+
   var_dump($_FILES);
 // upluad
   include '../bdd/bdd.php';
   if(isset($_POST ['creer_candidat'])){
-    //echo $_FILES['1']['name']." -- ".$_FILES['2']['name']." -- ".$_FILES['3']['name'] ;
+
     if(isset($_FILES['1']["name"]) or isset($_FILES['2']["name"]) or isset($_FILES['3']["name"]) and (isset($_POST['offre']) and isset($_POST['session']))){
 
       $offre=$_POST['offre'];
@@ -61,4 +62,5 @@
 
     }
   }
+//  header("location: consultation_offre.php");
    ?>

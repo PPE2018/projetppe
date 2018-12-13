@@ -1,9 +1,3 @@
-<?php
-  var_dump($_FILES);
-
- ?>
-
-
 <html>
     <head>
         <title>Création_Candidature :</title>
@@ -18,6 +12,7 @@
     </head>
     <body>
       <?php
+    
 
       $langue = 'fr';
 
@@ -148,6 +143,7 @@
              <div>
                <input type="submit" name="creer_candidat" value="<?php echo" $str[50]" ?>">
              </div>
+
 
   </form>
 </div>

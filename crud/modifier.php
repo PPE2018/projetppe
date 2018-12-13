@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION['admin'] != 20){
+  header("location: consultation_offre.php");
+}
+else{
+  ?>
 <html>
     <head>
         <title>Création_Offre :</title>
@@ -24,8 +31,8 @@
 
           <div class='collapse navbar-collapse' id='navbarsExample05'>
             <ul class='navbar-nav mr-auto'>
-              <li class='nav-item active'>
-                <a class='nav-link' href='../consultation_offre_rh.php?langue=<?php echo $langue ?>'><?php echo $str[2]?></a>
+              <li class='nav-item'>
+                <a class='nav-link' href='../consultation_offre.php?langue=<?php echo $langue ?>'><?php echo $str[2]?></a>
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='../creation_offre.php?langue=<?php echo $langue ?>'><?php echo $str[3]?></a>
@@ -225,3 +232,4 @@
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
 </html>
+<?php } ?>

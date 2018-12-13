@@ -10,6 +10,7 @@ $str[5]="Languages";
 $str[6]="French";
 $str[7]="English";
 $str[8]="Account";
+$str[888]="Connection";
 
 //box
 $str[9]="Place";
@@ -59,6 +60,8 @@ $str[44]="Already seen";
 $str[50]="Add/Send";
 $str[51]="Apply for a job :";
 
+
+
 //consulter profil candidat
 $str[52]="Received :";
 $str[53]="Offerts :";
@@ -71,5 +74,14 @@ $str[59]="Video :";
 $str[60]="See";
 $str[61]="Not see";
 
+//Connexion
 
+$str[622]="Password";
+$str[633]="verification";
+$str[64]="Connexion";
+$str[65]="Register";
+$str[66]="Login";
+
+$str[62] = "Logout";
+$str[63] = "Apply";
  ?>
