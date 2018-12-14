@@ -65,7 +65,7 @@ $str[51]="Postuler à une offre :";
 
 $str[622]="Mot de passe";
 $str[633]="vérification";
-$str[64]="Connection";
+$str[64]="Connexion";
 $str[65]="Inscription";
 $str[66]="Se connecter";
 

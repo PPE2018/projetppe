@@ -78,7 +78,7 @@ $str[61]="Not see";
 
 $str[622]="Password";
 $str[633]="verification";
-$str[64]="Connexion";
+$str[64]="Connection";
 $str[65]="Register";
 $str[66]="Login";
 
