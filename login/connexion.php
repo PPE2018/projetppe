@@ -47,12 +47,12 @@
             <!-- Saisie du nom-->
             <div class='form-group'>
                <label for='nom_post'><?php echo $str[40]?> :</label>
-                <input type='text' class='form-control' name='nom' value=''/>
+                <input type='text' class='form-control' name='nom' value='' required/>
             </div>
             <!-- Saisie du mot de passe -->
             <div class='form-group'>
                <label for='nom_post'><?php echo $str[622]?> :</label>
-                <input type='password' class='form-control' name='mdp' value=''/>
+                <input type='password' class='form-control' name='mdp' value='' required/>
             </div>
 
             <!-- Bouton-->
@@ -68,25 +68,25 @@
             <!-- Saisie du nom-->
             <div class='form-group'>
                <label for='nom_post'><?php echo $str[40]?> :</label>
-                <input type='text' class='form-control' name='nom' value=''/>
+                <input type='text' class='form-control' name='nom' value='' required/>
             </div>
 
             <!-- Saisie du prénom-->
             <div class='form-group'>
                <label for='nom_post'><?php echo $str[41]?> :</label>
-                <input type='text' class='form-control' name='prenom' value=''/>
+                <input type='text' class='form-control' name='prenom' value='' required/>
             </div>
 
             <!-- Saisie du mot de passe-->
             <div class='form-group'>
                <label for='nom_post'><?php echo $str[622]?> :</label>
-                <input type='text' class='form-control' name='mdp' value=''/>
+                <input type='text' class='form-control' name='mdp' value='' minlength="8" required/>
             </div>
 
             <!-- Saisie du mot de passe-->
             <div class='form-group'>
                <label for='nom_post'><?php echo $str[622]?>: (<?php echo $str[633]?>)</label>
-                <input type='text' class='form-control' name='mdp_verif' value=''/>
+                <input type='text' class='form-control' name='mdp_verif' value='' minlength="8" required/>
             </div>
 
             <!-- Bouton-->

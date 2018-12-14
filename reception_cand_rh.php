@@ -48,7 +48,7 @@ else{
             </div>
           </li>
           <li class='nav-item'>
-            <a class='nav-link' href='#'><?php echo $str[8] ?></a>
+            <a class='nav-link' href='login/disconnect.php?langue=<?php echo $langue ?>'><?php echo $str[62] ?></a>
           </li>
         </ul>
       </div>

@@ -111,7 +111,7 @@
                       if($_SESSION['admin'] == 20){
                         echo "<a href='reception_cand_rh.php?id=$id&amp;langue=$langue' id='$id' class='candidature'>$str[16]</a>
                         <a href='crud/modifier.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[15]</a>
-                        <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer'>$str[17]</a>";
+                        <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer' onclick='return confirm('Etes-vous sûr ?')'>$str[17]</a>";
                       }
 
                       echo"        </p>
@@ -168,7 +168,7 @@
             if($_SESSION['admin'] == 20){
               echo "<a href='reception_cand_rh.php?id=$id&amp;langue=$langue' id='$id' class='candidature'>$str[16]</a>
               <a href='crud/modifier.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[15]</a>
-              <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer'>$str[17]</a>";
+              <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer' onclick='return confirm('Etes-vous sûr ?')'>$str[17]</a>";
             }
             if($_SESSION['admin'] == 10){
               echo "<a href='creation_candidat.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[63]</a>";
