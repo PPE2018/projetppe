@@ -114,6 +114,9 @@
                         <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer' onclick='return confirm('Etes-vous sûr ?')'>$str[17]</a>";
                       }
 
+                      if($_SESSION['admin'] == 10){
+                        echo "<a href='creation_candidat.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[63]</a>";
+                      }
                       echo"        </p>
                             </div>
                           </div>
@@ -182,6 +185,6 @@
                   ";
               ?>
     </body>
-    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="bootstrap/js/jQuery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </html>
