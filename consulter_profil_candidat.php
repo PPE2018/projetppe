@@ -85,14 +85,11 @@
 
       <!--  les offres avec sa fiche -->
       <?php
-      $id_perso=1;
-      $id=-1;
-      $i=0;
+
       include 'bdd/bdd.php';
 
-      $_SESSION["id_personne"]=1;
-      if(isset($_SESSION["id_personne"])){
-        $id_perso = $_SESSION["id_personne"];
+      if(isset($_SESSION["Candidat"])){
+        $id_perso = $_SESSION["Candidat"];
 
         $resultat= mysqli_query($connexion,"SELECT offre_emplois.id_offre,offre_emplois.libelle, offre_emplois.type_contrat, offre_emplois.salaire, offre_emplois.date_limite, DE.url, DE.id, C.reception
                                             FROM offre_emplois
