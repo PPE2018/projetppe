@@ -6,6 +6,7 @@
 </head>
 <body>
     <?php
+        session_start();
         include '../bdd/bdd.php';
         if(isset($_POST['creer_offre'])){
           if(isset($_POST['date_depots'])){
@@ -29,9 +30,8 @@
           }
 
           //id du RH
-          $idPersonne = 4; //A CHANGGGGGGEEEEERRRR
-          if(isset($_POST['id_personne'])){
-              $idPersonne = $_POST['id_personne'];
+          if(isset($_SESSION['personne'])){
+              $idPersonne = $_SESSION['personne'];
           }
 
           //Titre
@@ -49,8 +49,6 @@
               $id_offre = $_GET['id'];
           }
 
-          //TODO
-          //id_personne dependra de la session de l'utilisateur
           $requete = "UPDATE offre_emplois SET date_limite = '$dateLimite', description = '$description', id_personne = $idPersonne, libelle = '$lib', video = '$video', lieu = '$lieu', salaire = $salaire, type_contrat = '$contrat', supprimer = 0 WHERE id_offre = $id_offre";
           $resultat = mysqli_query($connexion, $requete);
 
@@ -125,7 +123,7 @@
           else{
               echo 'L\'offre d\'emploi a bien été modifié !<br />';
           }
-          echo "<br /><a href='../consultation_offre_rh.php?langue=$langue'>Retour</a>";
+          echo "<br /><a href='../consultation_offre.php?langue=$langue'>Retour</a>";
 
         }
         if(isset($_POST['ajoutCompetence'])){

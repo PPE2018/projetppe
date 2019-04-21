@@ -88,8 +88,8 @@
 
       include 'bdd/bdd.php';
 
-      if(isset($_SESSION["Candidat"])){
-        $id_perso = $_SESSION["Candidat"];
+      if(isset($_SESSION["personne"])){
+        $id_perso = $_SESSION["personne"];
 
         $resultat= mysqli_query($connexion,"SELECT offre_emplois.id_offre,offre_emplois.libelle, offre_emplois.type_contrat, offre_emplois.salaire, offre_emplois.date_limite, DE.url, DE.id, C.reception
                                             FROM offre_emplois

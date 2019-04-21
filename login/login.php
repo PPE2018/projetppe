@@ -14,20 +14,20 @@ if(isset($_POST['mdp'])){
     $mdp = $_POST['mdp'];
 }
 
-
+$_SESSION['admin'] = 0;
 
 $requete = "SELECT id_personne, nom, prenom FROM candidat WHERE nom = '$nom' AND mdp = PASSWORD('$mdp');";
 $resultat = mysqli_query($connexion, $requete);
 while ($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
-    $_SESSION['Candidat'] = $ligne['id_personne'];
-    $_SESSION['admin'] = 10;
+    $_SESSION['personne'] = $ligne['id_personne'];
+    $_SESSION['admin'] = 10; //10 pour un candidats
 }
 
 $requete = "SELECT id_personne, nom, prenom FROM rh WHERE nom = '$nom' AND mdp = PASSWORD('$mdp');";
 $resultat = mysqli_query($connexion, $requete);
 while ($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
-    $_SESSION['Candidat'] = $ligne['id_personne'];
-    $_SESSION['admin'] = 20;
+    $_SESSION['personne'] = $ligne['id_personne'];
+    $_SESSION['admin'] = 20; //20 pour un admin
 }
 if($_SESSION['admin'] == 20 || $_SESSION['admin'] == 10){
   header("location: ../consultation_offre.php?langue=$langue");
