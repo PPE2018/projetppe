@@ -14,6 +14,8 @@
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="creation_candidat.css">
+        <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
       <?php
@@ -138,12 +140,14 @@
               echo "<div>
                     <h3>$libel :</h3>
 
-                    <input type='hidden' name='MAX_FILE_SIZE' value='1048576' >
-                    <input type='file' name='patate' ><br />
+                    <input type='hidden' name='MAX_FILE_SIZE' value='30000000000000' >
+                    <input type='file' name='$ids' ><br />
 
                   </div> </br>";
               }
+
         }
+
              ?>
              <input type="hidden" name="offre" value ="<?php echo "$id_offre"?>">
              <input type="hidden" name="session" value ="<?php echo "  $id_personne "?>">
@@ -151,14 +155,10 @@
                <input type="submit" name="creer_candidat" value="<?php echo" $str[50]" ?>">
              </div>
 
-
-    <!-- </div>
-  </div> -->
   </form>
 </div>
 </div>
 </body>
-<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
+
 </html>
 <?php }?>

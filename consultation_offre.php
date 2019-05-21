@@ -15,7 +15,6 @@
     </head>
     <body>
       <?php
-
       $langue = 'fr';
       if (isset($_GET['langue']))
         $langue = $_GET['langue'];
@@ -52,7 +51,6 @@
                 </div>
               </li>
               <?php
-
               if($_SESSION['admin'] == 20){
               ?>
               <li class='nav-item'>
@@ -72,7 +70,6 @@
               </li>
               <?php
               }
-
               if($_SESSION['admin'] == 0){
               ?>
                 <li class='nav-item'>
@@ -92,13 +89,11 @@
               <div class='container'>
               <div class='row'>
               ";
-
               $id = -1; //index impossible
               $i= 0;
               while($ligne = mysqli_fetch_array($resultat, MYSQLI_BOTH)){
                 $id_offre=$ligne['id_offre'];
                 $id_datelim=$ligne['date_limite'];
-
                 $datetime = date("Y-m-d ");
                 if ($datetime< $id_datelim) {
                   if($id_offre!=$id){ // si id est différents de l'autre id
@@ -113,7 +108,6 @@
                         <a href='crud/modifier.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[15]</a>
                         <a href='crud/supprimer.php?id=$id&amp;langue=$langue' id='$id' class='supprimer' onclick='return confirm('Etes-vous sûr ?')'>$str[17]</a>";
                       }
-
                       if($_SESSION['admin'] == 10){
                         echo "<a href='creation_candidat.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[63]</a>";
                       }
@@ -130,10 +124,8 @@
                     $typecontr=$ligne['type_contrat'];
                     $salaire= $ligne['salaire'];
                     $datelim=$ligne['date_limite'];
-                    $datelim=date("d/m/Y");
                     $video=$ligne['video'];
                     $competence = $ligne['libelle'];
-
                     echo "
                             <div class='col-lg-12'>
                               <div class='boite'>
@@ -144,22 +136,17 @@
                                   <div class='card-body'>
                                     <p class='card-text'>
                                       <p>$desc</p>
-
                                       <b>$str[9] :</b> $lieu
                                       <br/> <b>$str[10] :</b> $typecontr
                                       <br/> <b>$str[11] :</b> $salaire
                                       <br/> <b>$str[12] :</b> $datelim
                                       <br /><a href='$video'><b>$str[13]</b></a>
                                       <br/> <b>$str[14] :</b> <br/> - $competence
-
-
                                 ";
-
                   }
                   else{
                     $competence = $ligne['libelle'];
                     echo "<br />- $competence";
-
                   }
                 $id=$id_offre;
               }
@@ -176,7 +163,6 @@
             if($_SESSION['admin'] == 10){
               echo "<a href='creation_candidat.php?id=$id&amp;langue=$langue' id='$id' class='modifier'>$str[63]</a>";
             }
-
             echo"        </p>
                   </div>
                 </div>
@@ -187,4 +173,4 @@
     </body>
     <script src="bootstrap/js/jQuery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-  </html>
+</html>

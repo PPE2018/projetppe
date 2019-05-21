@@ -106,7 +106,7 @@ else{
     </div>
 
   </body>
-  <script src="bootstrap/js/Jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
 </html>
 <?php } ?>

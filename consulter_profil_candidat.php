@@ -85,11 +85,14 @@
 
       <!--  les offres avec sa fiche -->
       <?php
-
+      $id_perso=1;
+      $id=-1;
+      $i=0;
       include 'bdd/bdd.php';
 
-      if(isset($_SESSION["personne"])){
-        $id_perso = $_SESSION["personne"];
+      $_SESSION["id_personne"]=1;
+      if(isset($_SESSION["id_personne"])){
+        $id_perso = $_SESSION["id_personne"];
 
         $resultat= mysqli_query($connexion,"SELECT offre_emplois.id_offre,offre_emplois.libelle, offre_emplois.type_contrat, offre_emplois.salaire, offre_emplois.date_limite, DE.url, DE.id, C.reception
                                             FROM offre_emplois
@@ -157,7 +160,7 @@
  </div>
 </div>
   </body>
-  <script src="bootstrap/js/jQuery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
 </html>
 <?php } ?>

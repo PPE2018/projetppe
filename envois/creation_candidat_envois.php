@@ -1,16 +1,16 @@
   <?php
+  var_dump($_FILES);
 // upluad
   include '../bdd/bdd.php';
   if(isset($_POST ['creer_candidat'])){
     //echo $_FILES['1']['name']." -- ".$_FILES['2']['name']." -- ".$_FILES['3']['name'] ;
-    if((isset($_FILES['patate']) or isset($_FILES['2']) or isset($_FILES['3'])) and isset($_POST['offre']) and isset($_POST['session'])){
-      echo "string";
-      die();
+    if(isset($_FILES['1']["name"]) or isset($_FILES['2']["name"]) or isset($_FILES['3']["name"]) and (isset($_POST['offre']) and isset($_POST['session']))){
+
       $offre=$_POST['offre'];
       $id_session=$_POST['session'];
 
 
-      $datenow= now();
+      $datenow = date("Y-m-d ");
       $rqt="INSERT INTO candidature (date_candidature, reception, id_offre, id_personne) VALUES ($datenow,'false',$offre, $id_session) ;";
       $resultat = mysqli_query($connexion, $rqt);
 
@@ -29,7 +29,8 @@
         if($_FILES['1']['size']<50000000 && $FileType="pdf"){
           move_uploaded_file($_FILES["1"]["tmp_name"], $target_file);
         }
-        $requete = "INSERT INTO deposer(id,id_candidature,url) VALUES (1,$id,$target_file)";
+        $requete = "INSERT INTO deposer(id,id_candidature,url) VALUES (1,$id,'$target_file')";
+
         $resultat = mysqli_query($connexion, $requete);
       }
 
@@ -40,23 +41,25 @@
         if($_FILES['2']['size']<50000000 && $FileType="pdf"){
           move_uploaded_file($_FILES["2"]["tmp_name"], $target_file);
         }
-        $requete = "INSERT INTO deposer(id,id_candidature,url) VALUES (2,$id,$target_file)";
+        $requete = "INSERT INTO deposer(id,id_candidature,url) VALUES (2,$id,'$target_file')";
         $resultat = mysqli_query($connexion, $requete);
       }
 
       if(isset($_FILES['3'])){
+        print_r($_FILES['3']);
         $target_file = $target_dir . basename($_FILES["3"]["name"]);
         $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        echo "</br>".$FileType;
 
-        if($_FILES['3']['size']<50000000 && $FileType="mp4"){
+        if($_FILES['3']['size']<50000000000 && $FileType="mp4"){
           move_uploaded_file($_FILES["3"]["tmp_name"], $target_file);
+
         }
-        $requete = "INSERT INTO deposer(id,id_candidature,url) VALUES (3,$id,$target_file)";
+        $requete = "INSERT INTO deposer(id,id_candidature,url) VALUES (3,$id,'$target_file')";
         $resultat = mysqli_query($connexion, $requete);
       }
 
-      echo "string";
-
     }
   }
+  header("location: ../consultation_offre.php");
    ?>

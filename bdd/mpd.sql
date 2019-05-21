@@ -59,6 +59,19 @@ CREATE TABLE RH(
 	,CONSTRAINT RH_PERSONNE_FK FOREIGN KEY (id_personne) REFERENCES PERSONNE(id_personne)
 )ENGINE=InnoDB;
 
+#------------------------------------------------------------
+# Table: RH
+#------------------------------------------------------------
+
+CREATE TABLE DEV(
+        id_personne Int NOT NULL ,
+        nom         Varchar (50) NOT NULL ,
+        mdp         Varchar (50) NOT NULL
+	,CONSTRAINT DEV_PK PRIMARY KEY (id_personne)
+
+	,CONSTRAINT DEV_PERSONNE_FK FOREIGN KEY (id_personne) REFERENCES PERSONNE(id_personne)
+)ENGINE=InnoDB;
+
 
 #------------------------------------------------------------
 # Table: OFFRE_EMPLOIS
@@ -173,9 +186,14 @@ INSERT INTO candidat(id_personne, mdp, nom, prenom) VALUES
 (2, 'mdp', 'Partick', 'Delarue'),
 (3, 'mdp', 'Emil', 'Lamar');
 
+INSERT INTO dev(id_personne, nom, mdp) VALUES
+(1,'dev','test');
+
+
+
 INSERT INTO rh(id_personne, mdp, nom, prenom, poste) VALUES
 (4, 'mdp', 'Sylvain', 'Partick', 'Responssable RH'),
-(5, 'mdp', 'Amandine', 'Claude', 'Chef RH'),
+(5, 'Chef RH', 'admin', 'Claude', '*7CEB3FDE5F7A9C4CE5FBE610D7D8EDA62EBE5F4E'),
 (6, 'mdp', 'Loan', 'Chantal', 'RH'),
 (7, 'mdp', 'Jacques', 'Pierre', 'RH');
 

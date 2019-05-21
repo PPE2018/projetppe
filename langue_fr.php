@@ -81,6 +81,6 @@ $str[59]="Vidéo :";
 $str[60]="Vue";
 $str[61]="Non vue";
 
-$str[62] = "Déconnection";
+$str[62] = "Déconnexion";
 $str[63] = "Postuler";
  ?>
